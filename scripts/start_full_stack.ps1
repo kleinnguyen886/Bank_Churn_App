@@ -18,6 +18,20 @@ function Resolve-NpmCommand {
   return $null
 }
 
+function Resolve-NodeCommand {
+  $candidates = @("node", "node.exe", "C:\Program Files\nodejs\node.exe", "C:\Program Files (x86)\nodejs\node.exe")
+  foreach ($candidate in $candidates) {
+    if (Test-Path $candidate) {
+      return $candidate
+    }
+    $cmd = Get-Command $candidate -ErrorAction SilentlyContinue
+    if ($cmd) {
+      return $cmd.Source
+    }
+  }
+  return $null
+}
+
 if (-not (Test-Path $pythonExe)) {
   throw "Python executable not found at $pythonExe. Run scripts/init_full_stack.ps1 first."
 }
@@ -30,8 +44,16 @@ $npmCmd = Resolve-NpmCommand
 if (-not $npmCmd) {
   Write-Warning "npm was not found in this shell. Frontend dev server was not started. If Node is already installed, restart VS Code/terminal to refresh PATH, then rerun this script."
 } else {
+  $nodeCmd = Resolve-NodeCommand
+  if (-not $nodeCmd) {
+    Write-Warning "npm was found but node.exe was not found. Frontend dev server was not started."
+    Write-Host "Both services launched in new PowerShell windows."
+    exit 0
+  }
+
+  $nodeDir = Split-Path -Parent $nodeCmd
   Write-Host "Starting frontend on http://127.0.0.1:5173 ..."
-  $frontendCmd = "Set-Location '$frontendDir'; & '$npmCmd' run dev"
+  $frontendCmd = "`$env:Path = '$nodeDir;' + `$env:Path; Set-Location '$frontendDir'; & '$npmCmd' run dev"
   Start-Process powershell -ArgumentList "-NoExit", "-Command", $frontendCmd
 }
 
