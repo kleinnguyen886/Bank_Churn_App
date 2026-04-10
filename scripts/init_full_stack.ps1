@@ -47,6 +47,14 @@ Write-Host "[4/5] Training model and generating artifacts..."
 & $pythonExe (Join-Path $projectRoot "scripts\train_and_prepare.py")
 
 Write-Host "[5/5] Installing frontend dependencies..."
+if (-not (Test-Path $frontendDir)) {
+  Write-Warning "Frontend reference folder was not found at '$frontendDir'. It is ignored from git to keep repo lightweight. Download/extract it locally, then rerun this script."
+  Write-Host "Expected folder name: Bank Retention Platform Design"
+  Write-Host "Initialization complete."
+  Write-Host "Run scripts/start_full_stack.ps1 to launch backend and frontend."
+  exit 0
+}
+
 Push-Location $frontendDir
 $npmCmd = Resolve-NpmCommand
 if (-not $npmCmd) {

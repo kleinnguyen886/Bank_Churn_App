@@ -41,7 +41,9 @@ $backendCmd = "& '$pythonExe' '$projectRoot\app.py'"
 Start-Process powershell -ArgumentList "-NoExit", "-Command", $backendCmd
 
 $npmCmd = Resolve-NpmCommand
-if (-not $npmCmd) {
+if (-not (Test-Path $frontendDir)) {
+  Write-Warning "Frontend reference folder was not found at '$frontendDir'. Backend has been started. Download/extract frontend locally to enable UI dev server."
+} elseif (-not $npmCmd) {
   Write-Warning "npm was not found in this shell. Frontend dev server was not started. If Node is already installed, restart VS Code/terminal to refresh PATH, then rerun this script."
 } else {
   $nodeCmd = Resolve-NodeCommand

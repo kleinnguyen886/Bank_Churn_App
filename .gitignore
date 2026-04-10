@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 .env
 *.log
+Bank Retention Platform Design/
+Bank Retention Platform Design.zip
 models/*.pkl
 models/*.joblib
 outputs/*.csv

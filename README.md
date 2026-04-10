@@ -62,6 +62,20 @@ This script will:
 3. download/train model and generate artifacts,
 4. install frontend dependencies in `Bank Retention Platform Design`.
 
+## Keeping Repository Lightweight
+
+To avoid very large commits, the frontend reference folder is git-ignored:
+
+- `Bank Retention Platform Design/`
+- `Bank Retention Platform Design.zip`
+
+Each collaborator should download/extract the frontend locally before running full-stack scripts.
+Use the Figma link and handoff docs in:
+
+- `figma/figma_link.txt`
+- `figma_handoff.md`
+- `figma/screen_mapping.md`
+
 If `npm` is not installed, the script still completes backend initialization and prints a warning for the frontend step.
 
 ## Start Full Stack (Backend + Frontend)
