@@ -1,0 +1,19 @@
+<aside class="sidebar">
+  <div class="brand-row">
+    <div class="brand-icon">BR</div>
+    <div>
+      <h1>Bank Retention</h1>
+      <p class="sidebar-subtitle">Platform</p>
+    </div>
+  </div>
+  <nav>
+    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Executive Dashboard</a>
+    <a class="nav-link {% if request.path.startswith('/workspace') %}active{% endif %}" href="/workspace">Retention Workspace</a>
+    <a class="nav-link {% if request.path.startswith('/model-governance') %}active{% endif %}" href="/model-governance">Model Governance</a>
+    <a class="nav-link {% if request.path.startswith('/campaigns') %}active{% endif %}" href="/campaigns">Campaign Center</a>
+  </nav>
+  <div class="sidebar-footer">
+    <p class="user-name">Sarah Johnson</p>
+    <p class="user-role">Manager</p>
+  </div>
+</aside>

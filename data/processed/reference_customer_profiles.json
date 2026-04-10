@@ -1,0 +1,42 @@
+{
+  "C-15634602": {
+    "customer_id": "C-15634602",
+    "name": "Henri Dupont",
+    "geography": "France",
+    "gender": "Male",
+    "age": 42,
+    "risk": "High",
+    "score": 0.87,
+    "recommended_action": "Personal call + balance incentive",
+    "drivers": [
+      {
+        "name": "Non-Active Member",
+        "impact": "Very High"
+      },
+      {
+        "name": "Zero Account Balance",
+        "impact": "High"
+      },
+      {
+        "name": "Low Credit Score",
+        "impact": "High"
+      },
+      {
+        "name": "Age Bracket 40-49",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-08",
+        "type": "call",
+        "description": "Outbound call: customer considering switching banks."
+      },
+      {
+        "date": "2026-03-22",
+        "type": "digital",
+        "description": "Mobile app login with low engagement behavior."
+      }
+    ]
+  }
+}

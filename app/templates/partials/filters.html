@@ -1,0 +1,16 @@
+<form method="get" class="filters">
+  <input type="text" name="q" placeholder="Search customer" value="{{ context.filters.q if context.filters else '' }}">
+  <select name="risk">
+    <option value="">All Risk</option>
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select>
+  <select name="status">
+    <option value="">All Status</option>
+    <option value="new">New</option>
+    <option value="in-progress">In Progress</option>
+    <option value="completed">Completed</option>
+  </select>
+  <button type="submit">Apply</button>
+</form>

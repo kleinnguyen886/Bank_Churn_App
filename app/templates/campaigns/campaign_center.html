@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="page-header">
+  <div>
+    <h2>{{ context.title }}</h2>
+    <p class="muted">{{ context.subtitle }}</p>
+  </div>
+  <div class="header-actions">
+    <button class="ghost-btn">Export Report</button>
+    <button class="primary-btn">Create Campaign</button>
+  </div>
+</header>
+
+<section class="kpi-grid kpi-grid-4">
+  {% for item in context.kpis %}
+    <article class="kpi-card">
+      <p class="kpi-value">{{ item.value }}</p>
+      <p class="kpi-label">{{ item.label }}</p>
+      <p class="kpi-change">{{ item.change }}</p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="panel">
+  <h2>Campaign Performance Trend</h2>
+  <p class="muted small">Churns prevented and budget utilization by month</p>
+  <canvas id="campaignTrendChart" height="110"></canvas>
+</section>
+
+<section class="panel">
+  <h2>Offer Acceptance by Geography</h2>
+  <canvas id="campaignGeoChart" height="110"></canvas>
+</section>
+
+<section class="panel">
+  <h2>Campaigns</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Segment</th>
+        <th>Channel</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for campaign in context.campaigns %}
+        <tr>
+          <td>{{ campaign.name }}</td>
+          <td>{{ campaign.segment }}</td>
+          <td>{{ campaign.channel }}</td>
+          <td>{{ campaign.status }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/campaigns.js') }}"></script>
+{% endblock %}

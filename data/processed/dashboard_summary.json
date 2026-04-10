@@ -1,0 +1,54 @@
+{
+  "title": "Executive Overview Dashboard",
+  "subtitle": "Bank churn prediction monitoring from trained artifact",
+  "kpis": [
+    {
+      "label": "Total Customers",
+      "value": "10,000",
+      "change": "-"
+    },
+    {
+      "label": "Predicted Churners",
+      "value": "714",
+      "change": "model-driven",
+      "alert": true
+    },
+    {
+      "label": "Overall Churn Rate",
+      "value": "20.4%",
+      "change": "dataset"
+    },
+    {
+      "label": "Retention Success Rate",
+      "value": "81.3%",
+      "change": "from eval"
+    }
+  ],
+  "top_segments": [
+    {
+      "segment": "Germany",
+      "customers": 2509,
+      "churn_rate": "32.4%",
+      "change": "model refresh"
+    },
+    {
+      "segment": "Spain",
+      "customers": 2477,
+      "churn_rate": "16.7%",
+      "change": "model refresh"
+    },
+    {
+      "segment": "France",
+      "customers": 5014,
+      "churn_rate": "16.2%",
+      "change": "model refresh"
+    }
+  ],
+  "recent_alerts": [
+    {
+      "title": "Model pipeline refreshed",
+      "description": "New model artifact and data products generated from Kaggle dataset.",
+      "severity": "medium"
+    }
+  ]
+}

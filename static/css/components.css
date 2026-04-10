@@ -1,0 +1,146 @@
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.kpi-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.kpi-grid-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.kpi-card,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.kpi-label {
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+
+.kpi-value {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.kpi-change {
+  margin: 8px 0 0;
+  color: #16a34a;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.alert-card {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 14px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select,
+.filters button {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.filters button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+}
+
+.data-table.compact th,
+.data-table.compact td {
+  padding: 8px;
+}
+
+.alert-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.panel canvas {
+  width: 100% !important;
+  min-height: 280px;
+}
+
+.alert-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.86rem;
+}
+
+.risk-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+}
+
+.risk-high {
+  background: #fde8e8;
+  color: var(--danger);
+}
+
+.risk-medium {
+  background: #fff4e5;
+  color: var(--warning);
+}
+
+.risk-low {
+  background: #e7f8ef;
+  color: var(--ok);
+}
+
+@media (max-width: 1200px) {
+  .kpi-grid-4,
+  .kpi-grid-5,
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}

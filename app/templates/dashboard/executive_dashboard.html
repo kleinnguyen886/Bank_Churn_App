@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="page-header">
+  <div>
+    <h2>{{ context.title }}</h2>
+    <p class="muted">{{ context.subtitle }}</p>
+  </div>
+  <div class="header-actions">
+    <button class="ghost-btn">Last 30 Days</button>
+    <button class="ghost-btn">All Geographies</button>
+    <button class="ghost-btn">Export</button>
+  </div>
+</header>
+
+<section class="kpi-grid">
+  {% for item in context.kpis %}
+    <article class="kpi-card {% if item.alert %}alert-card{% endif %}">
+      <p class="kpi-value">{{ item.value }}</p>
+      <p class="kpi-label">{{ item.label }}</p>
+      <p class="kpi-change">{{ item.change }}</p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="two-col">
+  <article class="panel">
+    <h3>Monthly Churn Volume Trend</h3>
+    <p class="muted small">Churned vs retained vs at-risk customers</p>
+    <canvas id="dashboardTrendChart" height="130"></canvas>
+  </article>
+
+  <article class="panel">
+    <h3>Churn Rate by Geography</h3>
+    <p class="muted small">Germany approximately 2x higher than FR/ES</p>
+    <canvas id="dashboardGeoChart" height="130"></canvas>
+  </article>
+</section>
+
+<section class="two-col">
+  <article class="panel">
+    <h3>Top Risk Segments</h3>
+    <table class="data-table compact">
+      <thead>
+        <tr>
+          <th>Segment</th>
+          <th>Customers</th>
+          <th>Churn Rate</th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in context.top_segments %}
+          <tr>
+            <td>{{ row.segment }}</td>
+            <td>{{ row.customers }}</td>
+            <td>{{ row.churn_rate }}</td>
+            <td>{{ row.change }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </article>
+
+  <article class="panel">
+    <h3>Recent Alerts</h3>
+    {% for alert in context.recent_alerts %}
+      <div class="alert-row">
+        <p class="alert-title">{{ alert.title }}</p>
+        <p class="muted small">{{ alert.description }}</p>
+      </div>
+    {% endfor %}
+  </article>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

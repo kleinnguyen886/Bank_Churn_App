@@ -1,0 +1,6202 @@
+{
+  "C-15634602": {
+    "customer_id": "C-15634602",
+    "name": "Hargrave",
+    "geography": "France",
+    "gender": "Female",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.123,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15647311": {
+    "customer_id": "C-15647311",
+    "name": "Hill",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.158,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15619304": {
+    "customer_id": "C-15619304",
+    "name": "Onio",
+    "geography": "France",
+    "gender": "Female",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.334,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "High"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15701354": {
+    "customer_id": "C-15701354",
+    "name": "Boni",
+    "geography": "France",
+    "gender": "Female",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.22,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15737888": {
+    "customer_id": "C-15737888",
+    "name": "Mitchell",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 43,
+    "risk": "Low",
+    "score": 0.148,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15574012": {
+    "customer_id": "C-15574012",
+    "name": "Chu",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.245,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15592531": {
+    "customer_id": "C-15592531",
+    "name": "Bartlett",
+    "geography": "France",
+    "gender": "Male",
+    "age": 50,
+    "risk": "Low",
+    "score": 0.088,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15656148": {
+    "customer_id": "C-15656148",
+    "name": "Obinna",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.295,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "High"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15792365": {
+    "customer_id": "C-15792365",
+    "name": "He",
+    "geography": "France",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.123,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15592389": {
+    "customer_id": "C-15592389",
+    "name": "H?",
+    "geography": "France",
+    "gender": "Male",
+    "age": 27,
+    "risk": "Low",
+    "score": 0.036,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15767821": {
+    "customer_id": "C-15767821",
+    "name": "Bearce",
+    "geography": "France",
+    "gender": "Male",
+    "age": 31,
+    "risk": "Low",
+    "score": 0.121,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15737173": {
+    "customer_id": "C-15737173",
+    "name": "Andrews",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 24,
+    "risk": "Low",
+    "score": 0.062,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15632264": {
+    "customer_id": "C-15632264",
+    "name": "Kay",
+    "geography": "France",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.167,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15691483": {
+    "customer_id": "C-15691483",
+    "name": "Chin",
+    "geography": "France",
+    "gender": "Female",
+    "age": 25,
+    "risk": "Low",
+    "score": 0.113,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15600882": {
+    "customer_id": "C-15600882",
+    "name": "Scott",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.069,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15643966": {
+    "customer_id": "C-15643966",
+    "name": "Goforth",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 45,
+    "risk": "Low",
+    "score": 0.237,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15737452": {
+    "customer_id": "C-15737452",
+    "name": "Romeo",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 58,
+    "risk": "Medium",
+    "score": 0.674,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15788218": {
+    "customer_id": "C-15788218",
+    "name": "Henderson",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 24,
+    "risk": "Low",
+    "score": 0.034,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15661507": {
+    "customer_id": "C-15661507",
+    "name": "Muldrow",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 45,
+    "risk": "Low",
+    "score": 0.253,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15568982": {
+    "customer_id": "C-15568982",
+    "name": "Hao",
+    "geography": "France",
+    "gender": "Female",
+    "age": 24,
+    "risk": "Low",
+    "score": 0.029,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15577657": {
+    "customer_id": "C-15577657",
+    "name": "McDonald",
+    "geography": "France",
+    "gender": "Male",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.059,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15597945": {
+    "customer_id": "C-15597945",
+    "name": "Dellucci",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.15,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15699309": {
+    "customer_id": "C-15699309",
+    "name": "Gerasimov",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 38,
+    "risk": "Low",
+    "score": 0.255,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15725737": {
+    "customer_id": "C-15725737",
+    "name": "Mosman",
+    "geography": "France",
+    "gender": "Male",
+    "age": 46,
+    "risk": "Low",
+    "score": 0.084,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15625047": {
+    "customer_id": "C-15625047",
+    "name": "Yen",
+    "geography": "France",
+    "gender": "Female",
+    "age": 38,
+    "risk": "Low",
+    "score": 0.083,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15738191": {
+    "customer_id": "C-15738191",
+    "name": "Maclean",
+    "geography": "France",
+    "gender": "Male",
+    "age": 25,
+    "risk": "Low",
+    "score": 0.025,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15736816": {
+    "customer_id": "C-15736816",
+    "name": "Young",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.142,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15700772": {
+    "customer_id": "C-15700772",
+    "name": "Nebechi",
+    "geography": "France",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.194,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15728693": {
+    "customer_id": "C-15728693",
+    "name": "McWilliams",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 43,
+    "risk": "Low",
+    "score": 0.337,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15656300": {
+    "customer_id": "C-15656300",
+    "name": "Lucciano",
+    "geography": "France",
+    "gender": "Male",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.039,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15589475": {
+    "customer_id": "C-15589475",
+    "name": "Azikiwe",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.216,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "High"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15706552": {
+    "customer_id": "C-15706552",
+    "name": "Odinakachukwu",
+    "geography": "France",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.074,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15750181": {
+    "customer_id": "C-15750181",
+    "name": "Sanderson",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.383,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15659428": {
+    "customer_id": "C-15659428",
+    "name": "Maggard",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.116,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15732963": {
+    "customer_id": "C-15732963",
+    "name": "Clements",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.045,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15794171": {
+    "customer_id": "C-15794171",
+    "name": "Lombardo",
+    "geography": "France",
+    "gender": "Female",
+    "age": 45,
+    "risk": "Low",
+    "score": 0.426,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15788448": {
+    "customer_id": "C-15788448",
+    "name": "Watson",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 31,
+    "risk": "Low",
+    "score": 0.066,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15729599": {
+    "customer_id": "C-15729599",
+    "name": "Lorenzo",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.047,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15717426": {
+    "customer_id": "C-15717426",
+    "name": "Armstrong",
+    "geography": "France",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.039,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15585768": {
+    "customer_id": "C-15585768",
+    "name": "Cameron",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.177,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15619360": {
+    "customer_id": "C-15619360",
+    "name": "Hsiao",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 40,
+    "risk": "Low",
+    "score": 0.188,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15738148": {
+    "customer_id": "C-15738148",
+    "name": "Clarke",
+    "geography": "France",
+    "gender": "Female",
+    "age": 51,
+    "risk": "Medium",
+    "score": 0.561,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15687946": {
+    "customer_id": "C-15687946",
+    "name": "Osborne",
+    "geography": "France",
+    "gender": "Female",
+    "age": 61,
+    "risk": "Low",
+    "score": 0.431,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15755196": {
+    "customer_id": "C-15755196",
+    "name": "Lavine",
+    "geography": "France",
+    "gender": "Female",
+    "age": 49,
+    "risk": "Medium",
+    "score": 0.463,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15684171": {
+    "customer_id": "C-15684171",
+    "name": "Bianchi",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 61,
+    "risk": "Medium",
+    "score": 0.452,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15754849": {
+    "customer_id": "C-15754849",
+    "name": "Tyler",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.14,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15602280": {
+    "customer_id": "C-15602280",
+    "name": "Martin",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 27,
+    "risk": "Low",
+    "score": 0.107,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15771573": {
+    "customer_id": "C-15771573",
+    "name": "Okagbue",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.26,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15766205": {
+    "customer_id": "C-15766205",
+    "name": "Yin",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 38,
+    "risk": "Low",
+    "score": 0.174,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15771873": {
+    "customer_id": "C-15771873",
+    "name": "Buccho",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 37,
+    "risk": "Low",
+    "score": 0.407,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15616550": {
+    "customer_id": "C-15616550",
+    "name": "Chidiebele",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.411,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15768193": {
+    "customer_id": "C-15768193",
+    "name": "Trevisani",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.325,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15683553": {
+    "customer_id": "C-15683553",
+    "name": "O'Brien",
+    "geography": "France",
+    "gender": "Female",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.145,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15702298": {
+    "customer_id": "C-15702298",
+    "name": "Parkhill",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.418,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15569590": {
+    "customer_id": "C-15569590",
+    "name": "Yoo",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.399,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15760861": {
+    "customer_id": "C-15760861",
+    "name": "Phillipps",
+    "geography": "France",
+    "gender": "Male",
+    "age": 43,
+    "risk": "Low",
+    "score": 0.111,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15630053": {
+    "customer_id": "C-15630053",
+    "name": "Tsao",
+    "geography": "France",
+    "gender": "Male",
+    "age": 45,
+    "risk": "Low",
+    "score": 0.272,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15647091": {
+    "customer_id": "C-15647091",
+    "name": "Endrizzi",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 19,
+    "risk": "Low",
+    "score": 0.108,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15623944": {
+    "customer_id": "C-15623944",
+    "name": "T'ien",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 66,
+    "risk": "Medium",
+    "score": 0.689,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15804771": {
+    "customer_id": "C-15804771",
+    "name": "Velazquez",
+    "geography": "France",
+    "gender": "Male",
+    "age": 51,
+    "risk": "Low",
+    "score": 0.141,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15651280": {
+    "customer_id": "C-15651280",
+    "name": "Hunter",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.3,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15773469": {
+    "customer_id": "C-15773469",
+    "name": "Clark",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 27,
+    "risk": "Low",
+    "score": 0.287,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15702014": {
+    "customer_id": "C-15702014",
+    "name": "Jeffrey",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.139,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15751208": {
+    "customer_id": "C-15751208",
+    "name": "Pirozzi",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 56,
+    "risk": "Low",
+    "score": 0.205,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15592461": {
+    "customer_id": "C-15592461",
+    "name": "Jackson",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 26,
+    "risk": "Low",
+    "score": 0.075,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15789484": {
+    "customer_id": "C-15789484",
+    "name": "Hammond",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.19,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15696061": {
+    "customer_id": "C-15696061",
+    "name": "Brownless",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.41,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15641582": {
+    "customer_id": "C-15641582",
+    "name": "Chibugo",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 43,
+    "risk": "Low",
+    "score": 0.186,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15638424": {
+    "customer_id": "C-15638424",
+    "name": "Glauert",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.207,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15755648": {
+    "customer_id": "C-15755648",
+    "name": "Pisano",
+    "geography": "France",
+    "gender": "Female",
+    "age": 21,
+    "risk": "Low",
+    "score": 0.09,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15703793": {
+    "customer_id": "C-15703793",
+    "name": "Konovalova",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 58,
+    "risk": "Medium",
+    "score": 0.575,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "High"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15620344": {
+    "customer_id": "C-15620344",
+    "name": "McKee",
+    "geography": "France",
+    "gender": "Male",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.067,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15812518": {
+    "customer_id": "C-15812518",
+    "name": "Palermo",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 37,
+    "risk": "Low",
+    "score": 0.137,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15779052": {
+    "customer_id": "C-15779052",
+    "name": "Ballard",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 25,
+    "risk": "Low",
+    "score": 0.11,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15770811": {
+    "customer_id": "C-15770811",
+    "name": "Wallace",
+    "geography": "France",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.053,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15780961": {
+    "customer_id": "C-15780961",
+    "name": "Cavenagh",
+    "geography": "France",
+    "gender": "Female",
+    "age": 21,
+    "risk": "Low",
+    "score": 0.097,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15614049": {
+    "customer_id": "C-15614049",
+    "name": "Hu",
+    "geography": "France",
+    "gender": "Male",
+    "age": 55,
+    "risk": "Low",
+    "score": 0.148,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15662085": {
+    "customer_id": "C-15662085",
+    "name": "Read",
+    "geography": "France",
+    "gender": "Female",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.061,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15575185": {
+    "customer_id": "C-15575185",
+    "name": "Bushell",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.054,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15803136": {
+    "customer_id": "C-15803136",
+    "name": "Postle",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 41,
+    "risk": "Medium",
+    "score": 0.534,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15706021": {
+    "customer_id": "C-15706021",
+    "name": "Buley",
+    "geography": "France",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.219,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15663706": {
+    "customer_id": "C-15663706",
+    "name": "Leonard",
+    "geography": "France",
+    "gender": "Female",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.148,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15641732": {
+    "customer_id": "C-15641732",
+    "name": "Mills",
+    "geography": "France",
+    "gender": "Female",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.197,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15701164": {
+    "customer_id": "C-15701164",
+    "name": "Onyeorulu",
+    "geography": "France",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.104,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15738751": {
+    "customer_id": "C-15738751",
+    "name": "Beit",
+    "geography": "France",
+    "gender": "Female",
+    "age": 46,
+    "risk": "Low",
+    "score": 0.319,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15805254": {
+    "customer_id": "C-15805254",
+    "name": "Ndukaku",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 75,
+    "risk": "Medium",
+    "score": 0.55,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15762418": {
+    "customer_id": "C-15762418",
+    "name": "Gant",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 22,
+    "risk": "Low",
+    "score": 0.069,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15625759": {
+    "customer_id": "C-15625759",
+    "name": "Rowley",
+    "geography": "France",
+    "gender": "Male",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.074,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15622897": {
+    "customer_id": "C-15622897",
+    "name": "Sharpe",
+    "geography": "France",
+    "gender": "Female",
+    "age": 46,
+    "risk": "Low",
+    "score": 0.281,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "High"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15767954": {
+    "customer_id": "C-15767954",
+    "name": "Osborne",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 28,
+    "risk": "Low",
+    "score": 0.118,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15757535": {
+    "customer_id": "C-15757535",
+    "name": "Heap",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.119,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "High"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15731511": {
+    "customer_id": "C-15731511",
+    "name": "Ritchie",
+    "geography": "France",
+    "gender": "Male",
+    "age": 45,
+    "risk": "Low",
+    "score": 0.227,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15809248": {
+    "customer_id": "C-15809248",
+    "name": "Cole",
+    "geography": "France",
+    "gender": "Female",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.191,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15640635": {
+    "customer_id": "C-15640635",
+    "name": "Capon",
+    "geography": "France",
+    "gender": "Male",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.026,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15676966": {
+    "customer_id": "C-15676966",
+    "name": "Capon",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.068,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15699461": {
+    "customer_id": "C-15699461",
+    "name": "Fiorentini",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.087,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15738721": {
+    "customer_id": "C-15738721",
+    "name": "Graham",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.084,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15693683": {
+    "customer_id": "C-15693683",
+    "name": "Yuille",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.07,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15604348": {
+    "customer_id": "C-15604348",
+    "name": "Allard",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 22,
+    "risk": "Low",
+    "score": 0.048,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15633059": {
+    "customer_id": "C-15633059",
+    "name": "Fanucci",
+    "geography": "France",
+    "gender": "Male",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.118,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15808582": {
+    "customer_id": "C-15808582",
+    "name": "Fu",
+    "geography": "France",
+    "gender": "Female",
+    "age": 40,
+    "risk": "Low",
+    "score": 0.107,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15743192": {
+    "customer_id": "C-15743192",
+    "name": "Hung",
+    "geography": "France",
+    "gender": "Female",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.306,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15580146": {
+    "customer_id": "C-15580146",
+    "name": "Hung",
+    "geography": "France",
+    "gender": "Male",
+    "age": 31,
+    "risk": "Low",
+    "score": 0.098,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15776605": {
+    "customer_id": "C-15776605",
+    "name": "Bradley",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.125,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15804919": {
+    "customer_id": "C-15804919",
+    "name": "Dunbabin",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 65,
+    "risk": "Low",
+    "score": 0.431,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15613854": {
+    "customer_id": "C-15613854",
+    "name": "Mauldon",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 46,
+    "risk": "Low",
+    "score": 0.174,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15599195": {
+    "customer_id": "C-15599195",
+    "name": "Stiger",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.102,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15812878": {
+    "customer_id": "C-15812878",
+    "name": "Parsons",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.192,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15602312": {
+    "customer_id": "C-15602312",
+    "name": "Walkom",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.165,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15744689": {
+    "customer_id": "C-15744689",
+    "name": "T'ang",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.307,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15803526": {
+    "customer_id": "C-15803526",
+    "name": "Eremenko",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.091,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15665790": {
+    "customer_id": "C-15665790",
+    "name": "Rowntree",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.329,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15715951": {
+    "customer_id": "C-15715951",
+    "name": "Thorpe",
+    "geography": "France",
+    "gender": "Male",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.252,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15591100": {
+    "customer_id": "C-15591100",
+    "name": "Chiemela",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.064,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15609618": {
+    "customer_id": "C-15609618",
+    "name": "Fanucci",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 28,
+    "risk": "Low",
+    "score": 0.08,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15675522": {
+    "customer_id": "C-15675522",
+    "name": "Ko",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.137,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15705512": {
+    "customer_id": "C-15705512",
+    "name": "Welch",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 37,
+    "risk": "Medium",
+    "score": 0.478,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15698028": {
+    "customer_id": "C-15698028",
+    "name": "Duncan",
+    "geography": "France",
+    "gender": "Female",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.254,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15661670": {
+    "customer_id": "C-15661670",
+    "name": "Chidozie",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 31,
+    "risk": "Low",
+    "score": 0.382,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15600781": {
+    "customer_id": "C-15600781",
+    "name": "Wu",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.287,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15682472": {
+    "customer_id": "C-15682472",
+    "name": "Culbreth",
+    "geography": "France",
+    "gender": "Male",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.118,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15580203": {
+    "customer_id": "C-15580203",
+    "name": "Kennedy",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.211,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15690673": {
+    "customer_id": "C-15690673",
+    "name": "Cameron",
+    "geography": "France",
+    "gender": "Female",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.215,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15760085": {
+    "customer_id": "C-15760085",
+    "name": "Calabresi",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 48,
+    "risk": "Low",
+    "score": 0.395,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15779659": {
+    "customer_id": "C-15779659",
+    "name": "Zetticci",
+    "geography": "France",
+    "gender": "Female",
+    "age": 28,
+    "risk": "Low",
+    "score": 0.143,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15627360": {
+    "customer_id": "C-15627360",
+    "name": "Fuller",
+    "geography": "France",
+    "gender": "Male",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.281,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15671137": {
+    "customer_id": "C-15671137",
+    "name": "MacDonald",
+    "geography": "France",
+    "gender": "Female",
+    "age": 52,
+    "risk": "Low",
+    "score": 0.232,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15782688": {
+    "customer_id": "C-15782688",
+    "name": "Piccio",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 56,
+    "risk": "Medium",
+    "score": 0.667,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15575492": {
+    "customer_id": "C-15575492",
+    "name": "Kennedy",
+    "geography": "France",
+    "gender": "Female",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.216,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15591607": {
+    "customer_id": "C-15591607",
+    "name": "Fernie",
+    "geography": "France",
+    "gender": "Male",
+    "age": 24,
+    "risk": "Low",
+    "score": 0.07,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15740404": {
+    "customer_id": "C-15740404",
+    "name": "He",
+    "geography": "France",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.06,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15718369": {
+    "customer_id": "C-15718369",
+    "name": "Kaodilinakachukwu",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.164,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15677871": {
+    "customer_id": "C-15677871",
+    "name": "Cocci",
+    "geography": "France",
+    "gender": "Male",
+    "age": 38,
+    "risk": "Low",
+    "score": 0.068,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15642004": {
+    "customer_id": "C-15642004",
+    "name": "Alekseeva",
+    "geography": "France",
+    "gender": "Male",
+    "age": 25,
+    "risk": "Low",
+    "score": 0.021,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15712543": {
+    "customer_id": "C-15712543",
+    "name": "Chinweike",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.137,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15584518": {
+    "customer_id": "C-15584518",
+    "name": "Arthur",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 50,
+    "risk": "Low",
+    "score": 0.407,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15802381": {
+    "customer_id": "C-15802381",
+    "name": "Li",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.215,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15610156": {
+    "customer_id": "C-15610156",
+    "name": "Ma",
+    "geography": "France",
+    "gender": "Male",
+    "age": 40,
+    "risk": "Low",
+    "score": 0.097,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15594408": {
+    "customer_id": "C-15594408",
+    "name": "Chia",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 48,
+    "risk": "Medium",
+    "score": 0.523,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15640905": {
+    "customer_id": "C-15640905",
+    "name": "Vasin",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.103,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15698932": {
+    "customer_id": "C-15698932",
+    "name": "Groves",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.439,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15724944": {
+    "customer_id": "C-15724944",
+    "name": "Tien",
+    "geography": "France",
+    "gender": "Male",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.04,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15628145": {
+    "customer_id": "C-15628145",
+    "name": "Forwood",
+    "geography": "France",
+    "gender": "Female",
+    "age": 43,
+    "risk": "Low",
+    "score": 0.172,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15713483": {
+    "customer_id": "C-15713483",
+    "name": "Greeves",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 52,
+    "risk": "Low",
+    "score": 0.306,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15612350": {
+    "customer_id": "C-15612350",
+    "name": "Taylor",
+    "geography": "France",
+    "gender": "Female",
+    "age": 31,
+    "risk": "Low",
+    "score": 0.159,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15800703": {
+    "customer_id": "C-15800703",
+    "name": "Madukwe",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 21,
+    "risk": "Low",
+    "score": 0.046,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15705707": {
+    "customer_id": "C-15705707",
+    "name": "Bennelong",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.17,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15754105": {
+    "customer_id": "C-15754105",
+    "name": "Olisanugo",
+    "geography": "France",
+    "gender": "Male",
+    "age": 37,
+    "risk": "Low",
+    "score": 0.172,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15703264": {
+    "customer_id": "C-15703264",
+    "name": "Chukwufumnanya",
+    "geography": "France",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Low",
+    "score": 0.235,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15794413": {
+    "customer_id": "C-15794413",
+    "name": "Harris",
+    "geography": "France",
+    "gender": "Male",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.042,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15650237": {
+    "customer_id": "C-15650237",
+    "name": "Morgan",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.133,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15759618": {
+    "customer_id": "C-15759618",
+    "name": "Alexeeva",
+    "geography": "France",
+    "gender": "Female",
+    "age": 48,
+    "risk": "Low",
+    "score": 0.39,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15811589": {
+    "customer_id": "C-15811589",
+    "name": "Metcalfe",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.169,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15689044": {
+    "customer_id": "C-15689044",
+    "name": "Humphries",
+    "geography": "France",
+    "gender": "Male",
+    "age": 37,
+    "risk": "Low",
+    "score": 0.196,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15709368": {
+    "customer_id": "C-15709368",
+    "name": "Milne",
+    "geography": "France",
+    "gender": "Female",
+    "age": 43,
+    "risk": "Low",
+    "score": 0.116,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15679145": {
+    "customer_id": "C-15679145",
+    "name": "Chou",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 57,
+    "risk": "Low",
+    "score": 0.368,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15655007": {
+    "customer_id": "C-15655007",
+    "name": "Li",
+    "geography": "France",
+    "gender": "Female",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.143,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15623595": {
+    "customer_id": "C-15623595",
+    "name": "Clayton",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 28,
+    "risk": "Low",
+    "score": 0.047,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15589975": {
+    "customer_id": "C-15589975",
+    "name": "Maclean",
+    "geography": "France",
+    "gender": "Female",
+    "age": 73,
+    "risk": "Medium",
+    "score": 0.619,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15804017": {
+    "customer_id": "C-15804017",
+    "name": "Chigolum",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 33,
+    "risk": "Low",
+    "score": 0.409,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15692132": {
+    "customer_id": "C-15692132",
+    "name": "Wilkinson",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 22,
+    "risk": "Low",
+    "score": 0.042,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15641122": {
+    "customer_id": "C-15641122",
+    "name": "Wei",
+    "geography": "France",
+    "gender": "Male",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.076,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15630910": {
+    "customer_id": "C-15630910",
+    "name": "Treacy",
+    "geography": "France",
+    "gender": "Female",
+    "age": 49,
+    "risk": "Low",
+    "score": 0.417,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15680772": {
+    "customer_id": "C-15680772",
+    "name": "Hu",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.073,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15658929": {
+    "customer_id": "C-15658929",
+    "name": "Taverner",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.113,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15585388": {
+    "customer_id": "C-15585388",
+    "name": "Sherman",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 31,
+    "risk": "Low",
+    "score": 0.092,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15724623": {
+    "customer_id": "C-15724623",
+    "name": "Taubman",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 24,
+    "risk": "Low",
+    "score": 0.242,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15588537": {
+    "customer_id": "C-15588537",
+    "name": "Robinson",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.345,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15574692": {
+    "customer_id": "C-15574692",
+    "name": "Pinto",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.212,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15611325": {
+    "customer_id": "C-15611325",
+    "name": "Wood",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 24,
+    "risk": "Low",
+    "score": 0.125,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15587562": {
+    "customer_id": "C-15587562",
+    "name": "Hawkins",
+    "geography": "France",
+    "gender": "Female",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.205,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15613172": {
+    "customer_id": "C-15613172",
+    "name": "Sun",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 27,
+    "risk": "Low",
+    "score": 0.176,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15651022": {
+    "customer_id": "C-15651022",
+    "name": "Yost",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 44,
+    "risk": "Medium",
+    "score": 0.457,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15586310": {
+    "customer_id": "C-15586310",
+    "name": "Ting",
+    "geography": "France",
+    "gender": "Male",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.138,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15625524": {
+    "customer_id": "C-15625524",
+    "name": "Rowe",
+    "geography": "France",
+    "gender": "Male",
+    "age": 40,
+    "risk": "Low",
+    "score": 0.067,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15755209": {
+    "customer_id": "C-15755209",
+    "name": "Fu",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.115,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15645248": {
+    "customer_id": "C-15645248",
+    "name": "Ho",
+    "geography": "France",
+    "gender": "Female",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.058,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15790355": {
+    "customer_id": "C-15790355",
+    "name": "Okechukwu",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.364,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15762615": {
+    "customer_id": "C-15762615",
+    "name": "Campbell",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 40,
+    "risk": "Low",
+    "score": 0.148,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15625426": {
+    "customer_id": "C-15625426",
+    "name": "Ashbolt",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 55,
+    "risk": "Medium",
+    "score": 0.734,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15716334": {
+    "customer_id": "C-15716334",
+    "name": "Rozier",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 45,
+    "risk": "Low",
+    "score": 0.159,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15789669": {
+    "customer_id": "C-15789669",
+    "name": "Hsia",
+    "geography": "France",
+    "gender": "Male",
+    "age": 65,
+    "risk": "Low",
+    "score": 0.28,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15621075": {
+    "customer_id": "C-15621075",
+    "name": "Ogbonnaya",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 45,
+    "risk": "Medium",
+    "score": 0.58,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15810845": {
+    "customer_id": "C-15810845",
+    "name": "T'ang",
+    "geography": "France",
+    "gender": "Male",
+    "age": 42,
+    "risk": "Low",
+    "score": 0.065,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15719377": {
+    "customer_id": "C-15719377",
+    "name": "Cocci",
+    "geography": "France",
+    "gender": "Female",
+    "age": 50,
+    "risk": "Low",
+    "score": 0.16,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15654506": {
+    "customer_id": "C-15654506",
+    "name": "Chang",
+    "geography": "France",
+    "gender": "Male",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.097,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15771977": {
+    "customer_id": "C-15771977",
+    "name": "T'ao",
+    "geography": "France",
+    "gender": "Female",
+    "age": 39,
+    "risk": "Low",
+    "score": 0.288,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15708710": {
+    "customer_id": "C-15708710",
+    "name": "Ford",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 37,
+    "risk": "Low",
+    "score": 0.112,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15726676": {
+    "customer_id": "C-15726676",
+    "name": "Marshall",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 30,
+    "risk": "Low",
+    "score": 0.036,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15587421": {
+    "customer_id": "C-15587421",
+    "name": "Tsai",
+    "geography": "Germany",
+    "gender": "Female",
+    "age": 34,
+    "risk": "Low",
+    "score": 0.363,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15726931": {
+    "customer_id": "C-15726931",
+    "name": "Onwumelu",
+    "geography": "France",
+    "gender": "Female",
+    "age": 41,
+    "risk": "Low",
+    "score": 0.26,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15771086": {
+    "customer_id": "C-15771086",
+    "name": "Graham",
+    "geography": "France",
+    "gender": "Female",
+    "age": 36,
+    "risk": "Low",
+    "score": 0.224,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15756850": {
+    "customer_id": "C-15756850",
+    "name": "Golovanov",
+    "geography": "France",
+    "gender": "Male",
+    "age": 40,
+    "risk": "Low",
+    "score": 0.182,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15702741": {
+    "customer_id": "C-15702741",
+    "name": "Potts",
+    "geography": "France",
+    "gender": "Male",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.124,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15679200": {
+    "customer_id": "C-15679200",
+    "name": "Crawford",
+    "geography": "Spain",
+    "gender": "Male",
+    "age": 29,
+    "risk": "Low",
+    "score": 0.093,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15594815": {
+    "customer_id": "C-15594815",
+    "name": "Aleshire",
+    "geography": "France",
+    "gender": "Male",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.058,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15635905": {
+    "customer_id": "C-15635905",
+    "name": "Moran",
+    "geography": "Spain",
+    "gender": "Female",
+    "age": 32,
+    "risk": "Low",
+    "score": 0.057,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15777892": {
+    "customer_id": "C-15777892",
+    "name": "Samsonova",
+    "geography": "Germany",
+    "gender": "Male",
+    "age": 37,
+    "risk": "Low",
+    "score": 0.143,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15656176": {
+    "customer_id": "C-15656176",
+    "name": "Jenkins",
+    "geography": "France",
+    "gender": "Male",
+    "age": 57,
+    "risk": "Low",
+    "score": 0.175,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "High"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "Low"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  },
+  "C-15811127": {
+    "customer_id": "C-15811127",
+    "name": "Volkov",
+    "geography": "France",
+    "gender": "Male",
+    "age": 35,
+    "risk": "Low",
+    "score": 0.152,
+    "recommended_action": "Monitor and engage",
+    "drivers": [
+      {
+        "name": "Age",
+        "impact": "Medium"
+      },
+      {
+        "name": "Active Membership",
+        "impact": "High"
+      },
+      {
+        "name": "Product Count",
+        "impact": "Medium"
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-04-10",
+        "type": "system",
+        "description": "Auto-generated from latest scoring run."
+      }
+    ]
+  }
+}

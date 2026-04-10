@@ -1,0 +1,41 @@
+{
+  "title": "Model Governance Center",
+  "subtitle": "Metrics derived from latest training run",
+  "cards": [
+    {
+      "label": "Model Version",
+      "value": "logreg-v1"
+    },
+    {
+      "label": "Accuracy",
+      "value": "80.8%"
+    },
+    {
+      "label": "Precision",
+      "value": "58.9%"
+    },
+    {
+      "label": "Recall",
+      "value": "18.7%"
+    },
+    {
+      "label": "AUC-ROC",
+      "value": "0.775"
+    }
+  ],
+  "metrics": {
+    "accuracy": 0.808,
+    "precision": 0.5891472868217055,
+    "recall": 0.18673218673218672,
+    "roc_auc": 0.7747639781538086,
+    "last_trained": "2026-04-10",
+    "model_version": "logreg-v1"
+  },
+  "alerts": [
+    {
+      "severity": "high",
+      "title": "Recall threshold check",
+      "description": "Investigate threshold tuning if recall is below 80%."
+    }
+  ]
+}

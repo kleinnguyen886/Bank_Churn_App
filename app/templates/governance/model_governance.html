@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="page-header">
+  <div>
+    <h2>{{ context.title }}</h2>
+    <p class="muted">{{ context.subtitle }}</p>
+  </div>
+  <div class="header-actions">
+    <button class="ghost-btn">Export Report</button>
+    <button class="primary-btn">Trigger Retraining</button>
+  </div>
+</header>
+
+<section class="kpi-grid kpi-grid-5">
+  {% for item in context.cards %}
+    <article class="kpi-card">
+      <p class="kpi-value">{{ item.value }}</p>
+      <p class="kpi-label">{{ item.label }}</p>
+      {% if item.change %}<p class="kpi-change">{{ item.change }}</p>{% endif %}
+    </article>
+  {% endfor %}
+</section>
+
+<article class="panel">
+  <h2>Model Metrics</h2>
+  <ul>
+    <li>ROC-AUC: {{ context.metrics.roc_auc }}</li>
+    <li>Precision: {{ context.metrics.precision }}</li>
+    <li>Recall: {{ context.metrics.recall }}</li>
+    <li>Last Trained: {{ context.metrics.last_trained }}</li>
+  </ul>
+</article>
+
+<article class="panel">
+  <h3>Model Performance Trend</h3>
+  <p class="muted small">Accuracy, precision, and recall over recent cycles</p>
+  <canvas id="governanceTrendChart" height="110"></canvas>
+</article>
+
+<article class="panel">
+  <h3>Active Alerts</h3>
+  {% for alert in context.alerts %}
+    <div class="alert-row">
+      <p class="alert-title">{{ alert.title }}</p>
+      <p class="muted small">{{ alert.description }}</p>
+    </div>
+  {% endfor %}
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/governance.js') }}"></script>
+{% endblock %}
