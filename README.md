@@ -119,8 +119,9 @@ If `ready` is `false` in `/api/debug/state`, rerun initialization scripts.
 ## Deployment (Render)
 
 - Build command: `pip install -r requirements.txt`
-- Start command: `gunicorn app:app`
+- Start command: `gunicorn wsgi:app`
 - Config file: `render.yaml`
+- WSGI entrypoint: `wsgi.py`
 
 ## Notes
 

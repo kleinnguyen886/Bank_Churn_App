@@ -61,14 +61,14 @@ The governance retraining button now starts a background job with polling agains
 ### What Render runs
 
 - Build command: `pip install -r requirements.txt`
-- Start command: `gunicorn app:app`
+- Start command: `gunicorn wsgi:app`
 - Python version: `3.11.9`
 
 ### How Render works
 
 1. Render pulls the GitHub repository.
 2. Render installs Python dependencies.
-3. Gunicorn starts the Flask app through `app.py`.
+3. Gunicorn starts the Flask app through `wsgi.py`.
 4. Flask serves the HTML templates, CSS, JavaScript, and API routes.
 5. The deployed UI reads the committed processed data and model artifacts from the repo.
 

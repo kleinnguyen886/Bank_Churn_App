@@ -3,5 +3,5 @@
 Target: Render Web Service
 
 - Build: pip install -r requirements.txt
-- Start: gunicorn app:app
+- Start: gunicorn wsgi:app
 - Verify: / and /api/health
