@@ -1,6 +1,19 @@
 from app.services.storage_service import read_json
 
 
+def _default_email(customer_id: str, name: str) -> str:
+    safe_name = "".join(ch.lower() for ch in name if ch.isalnum())
+    if not safe_name:
+        safe_name = customer_id.lower().replace("-", "")
+    return f"{safe_name}@example-bank.com"
+
+
+def _default_phone(customer_id: str) -> str:
+    suffix = "".join(ch for ch in customer_id if ch.isdigit())[-7:]
+    suffix = suffix.rjust(7, "0")
+    return f"+1-800-{suffix[:3]}-{suffix[3:]}"
+
+
 def get_customer_context(customer_id: str) -> dict:
     profiles = read_json("customer_profiles.json")
     if not profiles:
@@ -8,18 +21,21 @@ def get_customer_context(customer_id: str) -> dict:
 
     if customer_id in profiles:
         customer = profiles[customer_id]
+        name = customer.get("name", "Unknown")
         return {
             "title": "Customer Detail",
             "subtitle": "Risk profile, churn drivers, and recommended retention actions",
             "customer": {
                 "customer_id": customer.get("customer_id", customer_id),
-                "name": customer.get("name", "Unknown"),
+                "name": name,
                 "geography": customer.get("geography", "Unknown"),
                 "gender": customer.get("gender", "Unknown"),
                 "age": customer.get("age", 0),
                 "risk": customer.get("risk", "Medium"),
                 "score": customer.get("score", 0.5),
                 "recommended_action": customer.get("recommended_action", "Monitor"),
+                "email": customer.get("email") or _default_email(customer_id, name),
+                "phone": customer.get("phone") or _default_phone(customer_id),
             },
             "drivers": customer.get("drivers", []),
             "history": customer.get("history", []),
@@ -37,6 +53,8 @@ def get_customer_context(customer_id: str) -> dict:
             "risk": "High",
             "score": 0.87,
             "recommended_action": "Personal call + balance incentive",
+            "email": _default_email(customer_id, "Henri Dupont"),
+            "phone": _default_phone(customer_id),
         },
         "drivers": [
             {"name": "Non-Active Member", "impact": "Very High"},

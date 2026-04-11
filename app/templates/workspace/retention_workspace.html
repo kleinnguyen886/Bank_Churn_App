@@ -7,8 +7,8 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button class="primary-btn">Bulk Assign</button>
-    <button class="ghost-btn">Export</button>
+    <button id="workspaceBulkAssignBtn" class="primary-btn" type="button">Bulk Assign</button>
+    <button id="workspaceExportBtn" class="ghost-btn" type="button">Export</button>
   </div>
 </header>
 
@@ -20,7 +20,7 @@
 </section>
 
 {% include 'partials/filters.html' %}
-<table class="data-table">
+<table id="workspaceTable" class="data-table" data-disable-limit="true" data-page-size="{{ context.pagination.page_size if context.pagination else 50 }}">
   <thead>
     <tr>
       <th>Customer ID</th>
@@ -46,4 +46,30 @@
     {% endfor %}
   </tbody>
 </table>
+
+<div class="workspace-pagination" id="workspacePagination"
+     data-page="{{ context.pagination.page if context.pagination else 1 }}"
+     data-page-size="{{ context.pagination.page_size if context.pagination else 50 }}"
+     data-total-pages="{{ context.pagination.total_pages if context.pagination else 1 }}"
+     data-total-rows="{{ context.pagination.total_rows if context.pagination else 0 }}">
+  <div class="workspace-pagination-summary">
+    <span id="workspacePaginationSummary">{{ context.filtered_total if context.filtered_total is defined else 0 }} rows</span>
+  </div>
+  <div class="workspace-pagination-controls">
+    <label for="workspacePageSize" class="workspace-pagination-label">Rows per page</label>
+    <select id="workspacePageSize" class="workspace-pagination-select">
+      <option value="25">25</option>
+      <option value="50" selected>50</option>
+      <option value="100">100</option>
+      <option value="200">200</option>
+    </select>
+    <button id="workspacePrev" class="ghost-btn" type="button">Prev</button>
+    <span id="workspacePageInfo" class="workspace-page-info">Page 1 / 1</span>
+    <button id="workspaceNext" class="ghost-btn" type="button">Next</button>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/workspace.js') }}"></script>
 {% endblock %}

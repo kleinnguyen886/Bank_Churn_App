@@ -7,8 +7,8 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button class="ghost-btn">Export Report</button>
-    <button class="primary-btn">Create Campaign</button>
+    <button id="campaignExportBtn" class="ghost-btn" type="button">Export Report</button>
+    <button id="campaignCreateBtn" class="primary-btn" type="button">Create Campaign</button>
   </div>
 </header>
 
@@ -25,12 +25,12 @@
 <section class="panel">
   <h2>Campaign Performance Trend</h2>
   <p class="muted small">Churns prevented and budget utilization by month</p>
-  <canvas id="campaignTrendChart" height="110"></canvas>
+  <canvas id="campaignTrendChart" height="280"></canvas>
 </section>
 
 <section class="panel">
   <h2>Offer Acceptance by Geography</h2>
-  <canvas id="campaignGeoChart" height="110"></canvas>
+  <canvas id="campaignGeoChart" height="280"></canvas>
 </section>
 
 <section class="panel">

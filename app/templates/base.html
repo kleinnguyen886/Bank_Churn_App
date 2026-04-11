@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ context.title if context and context.title else "Bank Retention Platform" }}</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
@@ -19,6 +20,7 @@
       </section>
     </main>
   </div>
+  <script src="{{ url_for('static', filename='js/table-limit.js') }}"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

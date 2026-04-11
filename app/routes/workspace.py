@@ -10,6 +10,7 @@ workspace_bp = Blueprint("workspace", __name__)
 def retention_workspace():
     filters = {
         "risk": request.args.get("risk"),
+        "status": request.args.get("status"),
         "segment": request.args.get("segment"),
         "owner": request.args.get("owner"),
         "q": request.args.get("q"),

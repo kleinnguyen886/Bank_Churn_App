@@ -1,6 +1,17 @@
+from __future__ import annotations
+
 from pathlib import Path
 
 import kagglehub
+
+from config import DATA_DIR
+
+
+def local_raw_churn_csv() -> Path | None:
+    csv_path = DATA_DIR / "raw" / "Churn_Modelling.csv"
+    if csv_path.exists():
+        return csv_path
+    return None
 
 
 def download_churn_dataset() -> Path:

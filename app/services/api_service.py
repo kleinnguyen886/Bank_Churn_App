@@ -1,6 +1,7 @@
 from app.services.campaign_service import get_campaign_context
 from app.services.dashboard_service import get_dashboard_context
 from app.services.governance_service import get_governance_context
+from app.services.retraining_service import get_retraining_snapshot
 from app.services.storage_service import file_status
 
 
@@ -16,6 +17,7 @@ def get_debug_state() -> dict:
     files = file_status()
     return {
         "artifact_files": files,
+        "retraining": get_retraining_snapshot(),
         "ready": all(
             files.get(key, False)
             for key in [

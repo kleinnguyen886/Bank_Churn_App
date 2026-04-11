@@ -18,6 +18,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.services.data_service import download_churn_dataset, resolve_churn_csv
+from app.services.data_service import local_raw_churn_csv
 
 DATA_PROCESSED = ROOT / "data" / "processed"
 MODELS_DIR = ROOT / "models"
@@ -35,8 +36,10 @@ def main() -> None:
     DATA_PROCESSED.mkdir(parents=True, exist_ok=True)
     MODELS_DIR.mkdir(parents=True, exist_ok=True)
 
-    ds_dir = download_churn_dataset()
-    csv_path = resolve_churn_csv(ds_dir)
+    csv_path = local_raw_churn_csv()
+    if csv_path is None:
+        ds_dir = download_churn_dataset()
+        csv_path = resolve_churn_csv(ds_dir)
     df = pd.read_csv(csv_path)
 
     y = df["Exited"]

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 
 from config import Config
 from app.routes.api import api_bp
@@ -19,5 +19,9 @@ def create_app() -> Flask:
     app.register_blueprint(governance_bp)
     app.register_blueprint(campaigns_bp)
     app.register_blueprint(api_bp)
+
+    @app.get("/favicon.ico")
+    def favicon() -> tuple:
+        return redirect(url_for("static", filename="favicon.svg"), code=302)
 
     return app

@@ -7,10 +7,12 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button class="ghost-btn">Export Report</button>
-    <button class="primary-btn">Trigger Retraining</button>
+    <button id="governanceExportBtn" class="ghost-btn" type="button">Export Report</button>
+    <button id="governanceRetrainBtn" class="primary-btn" type="button">Trigger Retraining</button>
   </div>
 </header>
+
+<p id="governanceRetrainStatus" class="muted small">Retraining is idle.</p>
 
 <section class="kpi-grid kpi-grid-5">
   {% for item in context.cards %}
@@ -35,7 +37,7 @@
 <article class="panel">
   <h3>Model Performance Trend</h3>
   <p class="muted small">Accuracy, precision, and recall over recent cycles</p>
-  <canvas id="governanceTrendChart" height="110"></canvas>
+  <canvas id="governanceTrendChart" height="280"></canvas>
 </article>
 
 <article class="panel">

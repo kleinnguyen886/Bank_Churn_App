@@ -98,6 +98,13 @@ If `npm` is not installed, it starts only backend and warns about the frontend p
 - `GET /api/health`: service liveness
 - `GET /api/snapshot`: merged dashboard/governance/campaign payload
 - `GET /api/debug/state`: artifact file readiness and debug status
+- `GET /api/charts/dashboard`: dashboard chart payload
+- `GET /api/charts/governance`: governance trend payload
+- `GET /api/charts/campaigns`: campaign chart payload
+- `POST /api/retraining/jobs`: start an async retraining job
+- `GET /api/retraining/jobs/current`: current or latest retraining job
+- `GET /api/retraining/jobs/<job_id>`: poll retraining job status
+- `GET /api/workspace?page=1&page_size=50`: paginated workspace rows
 
 If `ready` is `false` in `/api/debug/state`, rerun initialization scripts.
 
@@ -119,3 +126,36 @@ If `ready` is `false` in `/api/debug/state`, rerun initialization scripts.
 
 - Existing React implementation in `Bank Retention Platform Design/` is kept as reference.
 - This Flask project is the MVP runtime.
+
+## Recent Implementation Updates (2026-04-11)
+
+1. Data pipeline
+- Training now uses local raw input `data/raw/Churn_Modelling.csv` first.
+- Kaggle download is only used as fallback when local raw input is missing.
+
+2. Dashboard/governance/campaign chart fixes
+- Added robust status checks, payload guards, and chart re-render safety.
+- Added client-side handling when Chart.js is unavailable.
+- Locked chart canvas height so the trend panels stay stable across rerenders.
+
+3. Workspace table scalability
+- Implemented server-side pagination in `/api/workspace`.
+- Added default page size 50 and max 200.
+- Workspace UI now fetches paged rows and supports page navigation.
+
+4. Button functionality
+- Dashboard buttons: range toggle, geography toggle, export CSV.
+- Governance buttons: export JSON, async retraining job start/status polling.
+- Campaign buttons: export CSV, create-campaign action hook.
+- Workspace buttons: bulk assign (current page), export current page.
+- Customer detail buttons: call, email, and update status action.
+
+5. Notebook improvements
+- `bank-and-customer-churn.ipynb` now reads local raw data path.
+- Added stronger evaluation output: classification report, ROC-AUC, precision/recall/F1, ROC/PR charts, and trend conclusion.
+
+Verification snapshot:
+- `/api/charts/dashboard` -> 200
+- `/api/charts/governance` -> 200
+- `/api/charts/campaigns` -> 200
+- `/api/workspace?page=1&page_size=50` -> valid pagination payload

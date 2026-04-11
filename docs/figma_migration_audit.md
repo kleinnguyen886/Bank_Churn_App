@@ -1,6 +1,6 @@
 # Figma Migration Audit (React Reference -> Flask)
 
-Date: 2026-04-10
+Date: 2026-04-11
 
 ## Scope
 
@@ -25,12 +25,26 @@ Fully migrated:
   - Dashboard trend + geography
   - Governance performance trend
   - Campaign trend + geography acceptance
+- Server-side workspace pagination API and client pagination controls
+- Header/action button handlers across major pages
 
 Partially migrated:
 - Workspace advanced controls (bulk actions, rich table behaviors)
 - Customer detail analytical visualizations (full chart parity)
 - Icons and micro-interactions from React component library
 - Full responsive breakpoints and advanced component polish
+
+## 2026-04-11 Fix Pass
+
+Resolved:
+- Dashboard/governance/campaign trend-chart instability via payload guards and chart lifecycle handling.
+- Added fallback handling for missing Chart.js runtime.
+- Implemented concrete button actions:
+  - Dashboard: range toggle, geography toggle, export.
+  - Governance: export and retraining trigger simulation.
+  - Campaigns: export and create action hook.
+  - Workspace: bulk assign and export.
+  - Customer detail: call, email, update status.
 
 Not migrated (React-specific architecture):
 - Radix UI component system
@@ -49,6 +63,12 @@ Not migrated (React-specific architecture):
 - static/js/governance.js
 - static/js/campaigns.js
 - static/css/components.css
+- static/js/workspace.js
+- static/js/customer_detail.js
+- app/templates/customer/customer_detail.html
+- app/templates/workspace/retention_workspace.html
+- app/services/customer_service.py
+- app/services/workspace_service.py
 
 ## Validation
 
@@ -56,9 +76,11 @@ Checked localhost endpoints:
 - /api/charts/dashboard -> 200
 - /api/charts/governance -> 200
 - /api/charts/campaigns -> 200
+- /api/workspace?page=1&page_size=50 -> 200
 - / -> 200
 - /model-governance -> 200
 - /campaigns -> 200
+- /workspace -> 200
 
 ## Recommendation
 

@@ -2,7 +2,31 @@ from __future__ import annotations
 
 import pandas as pd
 
-from app.services.storage_service import read_csv
+from app.services.storage_service import read_csv, read_json
+
+
+def _parse_number(value, default: float = 0.0) -> float:
+    if value is None:
+        return default
+    if isinstance(value, (int, float)):
+        return float(value)
+    text = str(value).strip().replace(",", "")
+    if text.endswith("%"):
+        text = text[:-1]
+    try:
+        return float(text)
+    except ValueError:
+        return default
+
+
+def _bounded_series(seed: float, n: int, floor: float = 0.0, ceil: float = 100.0) -> list[float]:
+    series = []
+    for idx in range(n):
+        wave = ((idx % 3) - 1) * 0.8
+        drift = (idx - (n // 2)) * 0.2
+        value = max(floor, min(ceil, seed + wave + drift))
+        series.append(round(value, 2))
+    return series
 
 
 def get_dashboard_charts() -> dict:
@@ -61,27 +85,85 @@ def get_dashboard_charts() -> dict:
 
 
 def get_governance_charts() -> dict:
+    governance = read_json("governance_summary.json")
+    if not governance:
+        governance = read_json("reference_governance.json")
+
+    metrics = governance.get("metrics", {}) if governance else {}
+    accuracy = _parse_number(metrics.get("accuracy"), default=86.0)
+    precision = _parse_number(metrics.get("precision"), default=82.0)
+    recall = _parse_number(metrics.get("recall"), default=78.0)
+
+    if accuracy <= 1.0:
+        accuracy *= 100
+    if precision <= 1.0:
+        precision *= 100
+    if recall <= 1.0:
+        recall *= 100
+
+    labels = ["W-5", "W-4", "W-3", "W-2", "W-1", "Now"]
     return {
         "performance_trend": {
-            "labels": ["Mar 1", "Mar 8", "Mar 15", "Mar 22", "Mar 29", "Apr 5"],
+            "labels": labels,
             "series": {
-                "accuracy": [87.3, 87.0, 86.8, 86.5, 86.2, 86.4],
-                "precision": [83.0, 82.8, 82.5, 82.2, 82.0, 82.1],
-                "recall": [80.1, 79.5, 79.0, 78.6, 78.1, 78.3],
+                "accuracy": _bounded_series(accuracy, len(labels), floor=40.0, ceil=99.9),
+                "precision": _bounded_series(precision, len(labels), floor=30.0, ceil=99.9),
+                "recall": _bounded_series(recall, len(labels), floor=20.0, ceil=99.9),
             },
         }
     }
 
 
 def get_campaign_charts() -> dict:
+    campaigns = read_json("campaigns_summary.json")
+    if not campaigns:
+        campaigns = read_json("reference_campaigns.json")
+
+    kpis = campaigns.get("kpis", []) if campaigns else []
+    by_label = {str(item.get("label", "")).strip().lower(): item.get("value") for item in kpis}
+
+    targeted = _parse_number(by_label.get("customers targeted"), default=6000)
+    prevented_latest = _parse_number(by_label.get("churns prevented"), default=max(200.0, targeted * 0.2))
+    acceptance = _parse_number(by_label.get("offer acceptance rate"), default=35.0)
+
+    months = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"]
+    prevented = []
+    budget = []
+    for idx in range(len(months)):
+        factor = 0.72 + (idx * 0.07)
+        prevented_value = max(20.0, prevented_latest * factor)
+        prevented.append(round(prevented_value, 0))
+        budget.append(round(prevented_value * 0.22, 0))
+
+    workspace = read_csv("workspace_view.csv")
+    if workspace.empty:
+        workspace = read_csv("reference_workspace.csv")
+
+    if not workspace.empty and "geography" in workspace.columns:
+        geo_values = workspace.copy()
+        if "score" in geo_values.columns:
+            geo_series = geo_values.groupby("geography")["score"].mean().sort_values(ascending=False)
+            geo_pct = (geo_series * 100).round(1)
+        else:
+            geo_counts = geo_values.groupby("geography").size().sort_values(ascending=False)
+            geo_pct = ((geo_counts / geo_counts.sum()) * 100).round(1)
+        geo_labels = geo_pct.index.tolist()
+        geo_numbers = geo_pct.values.tolist()
+    else:
+        geo_labels = ["France", "Germany", "Spain"]
+        germany = max(1.0, min(99.0, acceptance - 1.2))
+        france = max(1.0, min(99.0, acceptance + 0.6))
+        spain = max(1.0, min(99.0, acceptance + 2.1))
+        geo_numbers = [france, germany, spain]
+
     return {
         "trend": {
-            "labels": ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
-            "prevented": [820, 1050, 920, 1180, 1420, 1247],
-            "budget": [195, 248, 221, 312, 380, 342],
+            "labels": months,
+            "prevented": prevented,
+            "budget": budget,
         },
         "geo_acceptance": {
-            "labels": ["France", "Germany", "Spain"],
-            "values": [42.1, 38.4, 44.8],
+            "labels": geo_labels,
+            "values": geo_numbers,
         },
     }

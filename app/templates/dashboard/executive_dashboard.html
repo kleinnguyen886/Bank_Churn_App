@@ -7,9 +7,9 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button class="ghost-btn">Last 30 Days</button>
-    <button class="ghost-btn">All Geographies</button>
-    <button class="ghost-btn">Export</button>
+    <button id="dashboardLast30Btn" class="ghost-btn" type="button">Last 30 Days</button>
+    <button id="dashboardGeoToggleBtn" class="ghost-btn" type="button">All Geographies</button>
+    <button id="dashboardExportBtn" class="ghost-btn" type="button">Export</button>
   </div>
 </header>
 
@@ -27,13 +27,13 @@
   <article class="panel">
     <h3>Monthly Churn Volume Trend</h3>
     <p class="muted small">Churned vs retained vs at-risk customers</p>
-    <canvas id="dashboardTrendChart" height="130"></canvas>
+    <canvas id="dashboardTrendChart" height="280"></canvas>
   </article>
 
   <article class="panel">
     <h3>Churn Rate by Geography</h3>
     <p class="muted small">Germany approximately 2x higher than FR/ES</p>
-    <canvas id="dashboardGeoChart" height="130"></canvas>
+    <canvas id="dashboardGeoChart" height="280"></canvas>
   </article>
 </section>
 

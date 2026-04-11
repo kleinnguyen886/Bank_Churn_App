@@ -7,13 +7,18 @@
     <p class="muted">{{ context.customer.customer_id }} - {{ context.customer.geography }} - {{ context.customer.gender }}, Age {{ context.customer.age }}</p>
   </div>
   <div class="header-actions">
-    <button class="ghost-btn">Call Customer</button>
-    <button class="ghost-btn">Send Email</button>
-    <button class="primary-btn">Update Status</button>
+    <button id="customerCallBtn" class="ghost-btn" type="button">Call Customer</button>
+    <button id="customerEmailBtn" class="ghost-btn" type="button">Send Email</button>
+    <button id="customerStatusBtn" class="primary-btn" type="button">Update Status</button>
   </div>
 </header>
 
-<article class="panel">
+<article class="panel" id="customerSummary"
+         data-customer-id="{{ context.customer.customer_id }}"
+         data-customer-name="{{ context.customer.name }}"
+         data-customer-risk="{{ context.customer.risk }}"
+         data-customer-email="{{ context.customer.email if context.customer.email else '' }}"
+         data-customer-phone="{{ context.customer.phone if context.customer.phone else '' }}">
   <p>Risk: {% set value = context.customer.risk %}{% include 'partials/risk_badge.html' %}</p>
   <p>Churn score: {{ context.customer.score }}</p>
   <p>Recommended action: {{ context.customer.recommended_action }}</p>
@@ -50,4 +55,8 @@
     {% endfor %}
   </article>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/customer_detail.js') }}"></script>
 {% endblock %}
