@@ -43,13 +43,22 @@
   - Export table CSV
   - Create campaign action hook
 - Workspace:
-  - Bulk assign current page
+  - Bulk assign current page with backend persistence
   - Export current page CSV
   - Prev/Next and page-size pagination controls
 - Customer detail:
   - Call customer (`tel:`)
   - Send email (`mailto:`)
   - Update status/risk badge cycle
+
+### Workspace Filter Stability
+- Added owner filter field.
+- Preserved selected filter values and page size on form submit.
+- Bulk-assign now updates `data/processed/workspace_view.csv` through the backend API.
+
+### Governance Metrics
+- Added F1-score to training output and governance summary artifacts.
+- Expanded the governance KPI grid from 5 cards to 6 cards.
 
 ### Notebook
 - Updated `bank-and-customer-churn.ipynb` for local project data path.

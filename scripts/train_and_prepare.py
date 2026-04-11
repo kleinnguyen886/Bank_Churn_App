@@ -8,7 +8,7 @@ import joblib
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -94,6 +94,7 @@ def main() -> None:
         "accuracy": float(accuracy_score(y_test, pred)),
         "precision": float(precision_score(y_test, pred, zero_division=0)),
         "recall": float(recall_score(y_test, pred, zero_division=0)),
+        "f1_score": float(f1_score(y_test, pred, zero_division=0)),
         "roc_auc": float(roc_auc_score(y_test, prob)),
         "last_trained": pd.Timestamp.utcnow().strftime("%Y-%m-%d"),
         "model_version": "logreg-v1",
@@ -169,6 +170,7 @@ def main() -> None:
             {"label": "Accuracy", "value": f"{metrics['accuracy'] * 100:.1f}%"},
             {"label": "Precision", "value": f"{metrics['precision'] * 100:.1f}%"},
             {"label": "Recall", "value": f"{metrics['recall'] * 100:.1f}%"},
+            {"label": "F1-Score", "value": f"{metrics['f1_score'] * 100:.1f}%"},
             {"label": "AUC-ROC", "value": f"{metrics['roc_auc']:.3f}"},
         ],
         "metrics": metrics,

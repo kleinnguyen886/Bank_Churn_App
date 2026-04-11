@@ -5,7 +5,20 @@ async function loadWorkspacePage(page, pageSize) {
 		return;
 	}
 
-	const params = new URLSearchParams(window.location.search);
+	const filterForm = document.getElementById('workspaceFiltersForm');
+	const params = new URLSearchParams();
+	if (filterForm) {
+		const formData = new FormData(filterForm);
+		for (const [key, value] of formData.entries()) {
+			if (key === 'page' || key === 'page_size') {
+				continue;
+			}
+			const textValue = String(value || '').trim();
+			if (textValue) {
+				params.set(key, textValue);
+			}
+		}
+	}
 	params.set('page', String(page));
 	params.set('page_size', String(pageSize));
 
@@ -37,6 +50,15 @@ async function loadWorkspacePage(page, pageSize) {
 	pagination.dataset.totalPages = String(payload.total_pages);
 	pagination.dataset.totalRows = String(payload.total_rows);
 
+	const filterPageInput = document.querySelector('#workspaceFiltersForm input[name="page"]');
+	const filterPageSizeInput = document.querySelector('#workspaceFiltersForm input[name="page_size"]');
+	if (filterPageInput) {
+		filterPageInput.value = String(payload.page);
+	}
+	if (filterPageSizeInput) {
+		filterPageSizeInput.value = String(payload.page_size);
+	}
+
 	const summary = document.getElementById('workspacePaginationSummary');
 	const pageInfo = document.getElementById('workspacePageInfo');
 	const prevBtn = document.getElementById('workspacePrev');
@@ -55,9 +77,10 @@ async function loadWorkspacePage(page, pageSize) {
 		nextBtn.disabled = !payload.has_next;
 	}
 
-	const browserParams = new URLSearchParams(window.location.search);
-	browserParams.set('page', String(payload.page));
-	browserParams.set('page_size', String(payload.page_size));
+	const browserParams = new URLSearchParams();
+	for (const [key, value] of params.entries()) {
+		browserParams.set(key, value);
+	}
 	window.history.replaceState({}, '', `${window.location.pathname}?${browserParams.toString()}`);
 }
 
@@ -96,6 +119,7 @@ function exportWorkspaceTableCsv() {
 
 function bulkAssignCurrentPage() {
 	const table = document.getElementById('workspaceTable');
+	const pagination = document.getElementById('workspacePagination');
 	if (!table) {
 		return;
 	}
@@ -106,14 +130,34 @@ function bulkAssignCurrentPage() {
 	}
 
 	const bodyRows = Array.from(table.querySelectorAll('tbody tr'));
-	bodyRows.forEach((row) => {
-		const ownerCell = row.cells[5];
-		if (ownerCell) {
-			ownerCell.textContent = ownerName;
-		}
-	});
+	const customerIds = bodyRows
+		.map((row) => (row.cells[0] ? row.cells[0].textContent.trim() : ''))
+		.filter(Boolean);
 
-	showNotice(`Assigned ${bodyRows.length} row(s) to ${ownerName} on current page.`);
+	fetch('/api/workspace/bulk-assign', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			customer_ids: customerIds,
+			owner: ownerName,
+		}),
+	})
+		.then(async (response) => {
+			const payload = await response.json().catch(() => ({}));
+			if (!response.ok) {
+				throw new Error(payload.error || `Bulk assign failed: ${response.status}`);
+			}
+			const currentPage = Number(pagination && pagination.dataset.page ? pagination.dataset.page : 1);
+			const currentSize = Number(pagination && pagination.dataset.pageSize ? pagination.dataset.pageSize : 50);
+			await loadWorkspacePage(currentPage, currentSize);
+			showNotice(payload.message || `Assigned ${customerIds.length} row(s) to ${ownerName}.`);
+		})
+		.catch((error) => {
+			console.error('Failed to bulk assign workspace rows', error);
+			showNotice('Bulk assign failed. Please try again.');
+		});
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -126,10 +170,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const pageSizeSelect = document.getElementById('workspacePageSize');
 	const prevBtn = document.getElementById('workspacePrev');
 	const nextBtn = document.getElementById('workspaceNext');
+	const filterForm = document.getElementById('workspaceFiltersForm');
+	const filterPageInput = filterForm ? filterForm.querySelector('input[name="page"]') : null;
+	const filterPageSizeInput = filterForm ? filterForm.querySelector('input[name="page_size"]') : null;
 
 	const initialPageSize = readIntParam('page_size', Number(pagination.dataset.pageSize || 50));
 	if (pageSizeSelect) {
 		pageSizeSelect.value = String(initialPageSize);
+	}
+	if (filterPageInput) {
+		filterPageInput.value = '1';
+	}
+	if (filterPageSizeInput) {
+		filterPageSizeInput.value = String(initialPageSize);
 	}
 
 	loadWorkspacePage(readIntParam('page', 1), initialPageSize).catch((error) => {
@@ -159,9 +212,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (pageSizeSelect) {
 		pageSizeSelect.addEventListener('change', function () {
 			const nextSize = Number(pageSizeSelect.value || 50);
+			if (filterPageSizeInput) {
+				filterPageSizeInput.value = String(nextSize);
+			}
 			loadWorkspacePage(1, nextSize).catch((error) => {
 				console.error('Failed to change page size', error);
 			});
+		});
+	}
+
+	if (filterForm) {
+		filterForm.addEventListener('submit', function () {
+			if (filterPageInput) {
+				filterPageInput.value = '1';
+			}
+			if (filterPageSizeInput) {
+				filterPageSizeInput.value = String(Number(pagination.dataset.pageSize || pageSizeSelect?.value || 50));
+			}
 		});
 	}
 

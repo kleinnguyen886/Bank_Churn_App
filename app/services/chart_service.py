@@ -29,8 +29,37 @@ def _bounded_series(seed: float, n: int, floor: float = 0.0, ceil: float = 100.0
     return series
 
 
-def get_dashboard_charts() -> dict:
+def _load_dashboard_frame() -> pd.DataFrame:
     workspace = read_csv("workspace_view.csv")
+    if not workspace.empty:
+        frame = workspace.copy()
+    else:
+        customer_master = read_csv("customer_master.csv")
+        if customer_master.empty:
+            return pd.DataFrame()
+        frame = customer_master.copy()
+
+    frame = frame.rename(
+        columns={
+            "Geography": "geography",
+            "churn_probability": "score",
+        }
+    )
+
+    if "geography" not in frame.columns:
+        frame["geography"] = "Unknown"
+    frame["geography"] = frame["geography"].fillna("Unknown").astype(str)
+
+    if "score" in frame.columns:
+        frame["score"] = pd.to_numeric(frame["score"], errors="coerce").fillna(0.0)
+    else:
+        frame["score"] = 0.0
+
+    return frame
+
+
+def get_dashboard_charts() -> dict:
+    workspace = _load_dashboard_frame()
     if workspace.empty:
         return {
             "churn_trend": {

@@ -11,10 +11,21 @@ from app.services.retraining_service import (
     get_retraining_job,
     start_retraining_job,
 )
-from app.services.workspace_service import get_workspace_page
+from app.services.workspace_service import get_workspace_page, update_workspace_owners
 
 
 api_bp = Blueprint("api", __name__, url_prefix="/api")
+
+
+def _clean_filter_value(value: object) -> str:
+    if value is None:
+        return ""
+
+    text = str(value).strip()
+    if text.lower() in {"none", "null", "undefined"}:
+        return ""
+
+    return text
 
 
 @api_bp.get("/health")
@@ -70,10 +81,10 @@ def retraining_jobs_status(job_id: str):
 @api_bp.get("/workspace")
 def workspace_rows():
     filters = {
-        "risk": request.args.get("risk"),
-        "status": request.args.get("status"),
-        "owner": request.args.get("owner"),
-        "q": request.args.get("q"),
+        "risk": _clean_filter_value(request.args.get("risk")),
+        "status": _clean_filter_value(request.args.get("status")),
+        "owner": _clean_filter_value(request.args.get("owner")),
+        "q": _clean_filter_value(request.args.get("q")),
     }
 
     try:
@@ -87,3 +98,19 @@ def workspace_rows():
         page_size = 50
 
     return jsonify(get_workspace_page(filters=filters, page=page, page_size=page_size))
+
+
+@api_bp.post("/workspace/bulk-assign")
+def workspace_bulk_assign():
+    payload = request.get_json(silent=True) or {}
+    customer_ids = payload.get("customer_ids") or []
+    owner = str(payload.get("owner") or "").strip()
+
+    if not isinstance(customer_ids, list):
+        return jsonify({"error": "customer_ids must be a list"}), 400
+
+    updated_count = update_workspace_owners([str(customer_id) for customer_id in customer_ids], owner)
+    if updated_count == 0:
+        return jsonify({"updated": 0, "message": "No workspace rows were updated."}), 200
+
+    return jsonify({"updated": updated_count, "message": f"Updated {updated_count} workspace rows."})

@@ -58,10 +58,10 @@
   <div class="workspace-pagination-controls">
     <label for="workspacePageSize" class="workspace-pagination-label">Rows per page</label>
     <select id="workspacePageSize" class="workspace-pagination-select">
-      <option value="25">25</option>
-      <option value="50" selected>50</option>
-      <option value="100">100</option>
-      <option value="200">200</option>
+      <option value="25" {% if context.pagination and context.pagination.page_size == 25 %}selected{% endif %}>25</option>
+      <option value="50" {% if context.pagination and context.pagination.page_size == 50 %}selected{% endif %}>50</option>
+      <option value="100" {% if context.pagination and context.pagination.page_size == 100 %}selected{% endif %}>100</option>
+      <option value="200" {% if context.pagination and context.pagination.page_size == 200 %}selected{% endif %}>200</option>
     </select>
     <button id="workspacePrev" class="ghost-btn" type="button">Prev</button>
     <span id="workspacePageInfo" class="workspace-page-info">Page 1 / 1</span>

@@ -14,7 +14,7 @@
 
 <p id="governanceRetrainStatus" class="muted small">Retraining is idle.</p>
 
-<section class="kpi-grid kpi-grid-5">
+<section class="kpi-grid kpi-grid-6">
   {% for item in context.cards %}
     <article class="kpi-card">
       <p class="kpi-value">{{ item.value }}</p>
@@ -30,6 +30,7 @@
     <li>ROC-AUC: {{ context.metrics.roc_auc }}</li>
     <li>Precision: {{ context.metrics.precision }}</li>
     <li>Recall: {{ context.metrics.recall }}</li>
+    <li>F1-Score: {{ context.metrics.f1_score }}</li>
     <li>Last Trained: {{ context.metrics.last_trained }}</li>
   </ul>
 </article>

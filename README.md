@@ -148,7 +148,8 @@ If `ready` is `false` in `/api/debug/state`, rerun initialization scripts.
 - Dashboard buttons: range toggle, geography toggle, export CSV.
 - Governance buttons: export JSON, async retraining job start/status polling.
 - Campaign buttons: export CSV, create-campaign action hook.
-- Workspace buttons: bulk assign (current page), export current page.
+- Workspace buttons: bulk assign (current page, persisted to backend), export current page.
+- Workspace filters preserve selected values and page size across submits.
 - Customer detail buttons: call, email, and update status action.
 
 5. Notebook improvements

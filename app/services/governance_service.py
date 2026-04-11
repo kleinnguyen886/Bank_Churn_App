@@ -18,12 +18,14 @@ def get_governance_context() -> dict:
             {"label": "Accuracy", "value": "86.4%", "change": "-0.9%"},
             {"label": "Precision", "value": "82.1%", "change": "+0.4%"},
             {"label": "Recall", "value": "78.3%", "change": "-1.8%"},
+            {"label": "F1-Score", "value": "79.9%", "change": "+0.1%"},
             {"label": "AUC-ROC", "value": "0.867", "change": "-0.012"},
         ],
         "metrics": {
             "roc_auc": 0.84,
             "precision": 0.73,
             "recall": 0.69,
+            "f1_score": 0.71,
             "last_trained": "2026-04-10",
         },
         "alerts": [

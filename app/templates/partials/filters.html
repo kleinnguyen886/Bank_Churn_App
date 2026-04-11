@@ -1,16 +1,19 @@
 <form id="workspaceFiltersForm" method="get" class="filters">
-  <input type="text" name="q" placeholder="Search customer" value="{{ context.filters.q if context.filters else '' }}">
+  <input type="text" name="q" placeholder="Search customer" value="{{ context.filters.q if context.filters and context.filters.q else '' }}">
+  <input type="hidden" name="page" value="1">
+  <input type="hidden" name="page_size" id="workspaceFilterPageSize" value="{{ context.pagination.page_size if context.pagination else 50 }}">
+  <input type="text" name="owner" placeholder="Owner" value="{{ context.filters.owner if context.filters and context.filters.owner else '' }}">
   <select name="risk">
     <option value="">All Risk</option>
-    <option value="High">High</option>
-    <option value="Medium">Medium</option>
-    <option value="Low">Low</option>
+    <option value="High" {% if context.filters and context.filters.risk == 'High' %}selected{% endif %}>High</option>
+    <option value="Medium" {% if context.filters and context.filters.risk == 'Medium' %}selected{% endif %}>Medium</option>
+    <option value="Low" {% if context.filters and context.filters.risk == 'Low' %}selected{% endif %}>Low</option>
   </select>
   <select name="status">
     <option value="">All Status</option>
-    <option value="new">New</option>
-    <option value="in-progress">In Progress</option>
-    <option value="completed">Completed</option>
+    <option value="new" {% if context.filters and context.filters.status == 'new' %}selected{% endif %}>New</option>
+    <option value="in-progress" {% if context.filters and context.filters.status == 'in-progress' %}selected{% endif %}>In Progress</option>
+    <option value="completed" {% if context.filters and context.filters.status == 'completed' %}selected{% endif %}>Completed</option>
   </select>
   <button type="submit">Apply</button>
 </form>

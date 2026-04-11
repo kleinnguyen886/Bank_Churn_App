@@ -12,6 +12,10 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.kpi-grid-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
 .kpi-card,
 .panel {
   background: var(--panel);
@@ -202,6 +206,16 @@
   .kpi-grid-4,
   .kpi-grid-5,
   .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid-6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-grid-6 {
     grid-template-columns: 1fr;
   }
 }

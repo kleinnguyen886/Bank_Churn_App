@@ -1,10 +1,78 @@
 from __future__ import annotations
 
+import pandas as pd
+
 from app.services.storage_service import read_csv
 
 
 DEFAULT_PAGE_SIZE = 50
 MAX_PAGE_SIZE = 200
+
+
+def _normalize_workspace_frame(workspace_df: pd.DataFrame) -> pd.DataFrame:
+    normalized = workspace_df.rename(
+        columns={
+            "Risk": "risk",
+            "Score": "score",
+            "Owner": "owner",
+            "Status": "status",
+            "Name": "name",
+            "Surname": "name",
+            "Geography": "geography",
+            "CustomerId": "customer_id",
+        }
+    ).copy()
+
+    if "owner" not in normalized:
+        normalized["owner"] = "Unassigned"
+    if "status" not in normalized:
+        normalized["status"] = "new"
+
+    expected = ["customer_id", "name", "geography", "risk", "score", "owner", "status"]
+    for col in expected:
+        if col not in normalized:
+            normalized[col] = "" if col != "score" else 0.0
+
+    normalized["customer_id"] = normalized["customer_id"].astype(str).apply(
+        lambda value: value if value.startswith("C-") else f"C-{value}"
+    )
+    normalized["name"] = normalized["name"].fillna("Unknown").astype(str)
+    normalized["geography"] = normalized["geography"].fillna("Unknown").astype(str)
+    normalized["risk"] = normalized["risk"].fillna("Medium").astype(str).str.title()
+    normalized["score"] = normalized["score"].fillna(0.0).astype(float).round(3)
+    normalized["owner"] = normalized["owner"].fillna("Unassigned").astype(str)
+    normalized["status"] = normalized["status"].fillna("new").astype(str).str.lower()
+
+    return normalized[expected]
+
+
+def _save_workspace_frame(frame: pd.DataFrame) -> None:
+    from app.services.storage_service import PROCESSED_DIR
+
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    frame.to_csv(PROCESSED_DIR / "workspace_view.csv", index=False)
+
+
+def update_workspace_owners(customer_ids: list[str], owner: str) -> int:
+    if not customer_ids or not owner:
+        return 0
+
+    workspace_df = read_csv("workspace_view.csv")
+    if workspace_df.empty:
+        workspace_df = read_csv("reference_workspace.csv")
+    if workspace_df.empty:
+        return 0
+
+    normalized = _normalize_workspace_frame(workspace_df)
+    id_set = {str(customer_id) for customer_id in customer_ids}
+    updated_mask = normalized["customer_id"].astype(str).isin(id_set)
+    updated_count = int(updated_mask.sum())
+    if updated_count == 0:
+        return 0
+
+    normalized.loc[updated_mask, "owner"] = owner
+    _save_workspace_frame(normalized)
+    return updated_count
 
 
 def _load_workspace_rows() -> list[dict]:
@@ -53,40 +121,8 @@ def _load_workspace_rows() -> list[dict]:
     if workspace_df.empty:
         return rows
 
-    normalized = workspace_df.rename(
-        columns={
-            "Risk": "risk",
-            "Score": "score",
-            "Owner": "owner",
-            "Status": "status",
-            "Name": "name",
-            "Surname": "name",
-            "Geography": "geography",
-            "CustomerId": "customer_id",
-        }
-    ).copy()
-
-    if "owner" not in normalized:
-        normalized["owner"] = "Unassigned"
-    if "status" not in normalized:
-        normalized["status"] = "new"
-
-    expected = ["customer_id", "name", "geography", "risk", "score", "owner", "status"]
-    for col in expected:
-        if col not in normalized:
-            normalized[col] = "" if col != "score" else 0.0
-
-    normalized["customer_id"] = normalized["customer_id"].astype(str).apply(
-        lambda x: x if x.startswith("C-") else f"C-{x}"
-    )
-    normalized["name"] = normalized["name"].fillna("Unknown").astype(str)
-    normalized["geography"] = normalized["geography"].fillna("Unknown").astype(str)
-    normalized["risk"] = normalized["risk"].fillna("Medium").astype(str).str.title()
-    normalized["score"] = normalized["score"].fillna(0.0).astype(float).round(3)
-    normalized["owner"] = normalized["owner"].fillna("Unassigned").astype(str)
-    normalized["status"] = normalized["status"].fillna("new").astype(str).str.lower()
-
-    return normalized[expected].to_dict(orient="records")
+    normalized = _normalize_workspace_frame(workspace_df)
+    return normalized.to_dict(orient="records")
 
 
 def _filter_rows(rows: list[dict], filters: dict) -> list[dict]:
@@ -140,10 +176,10 @@ def get_workspace_page(filters: dict, page: int = 1, page_size: int = DEFAULT_PA
     }
 
 
-def get_workspace_context(filters: dict) -> dict:
+def get_workspace_context(filters: dict, page: int = 1, page_size: int = DEFAULT_PAGE_SIZE) -> dict:
     rows = _load_workspace_rows()
     filtered_rows = _filter_rows(rows, filters)
-    first_page = get_workspace_page(filters, page=1, page_size=DEFAULT_PAGE_SIZE)
+    first_page = get_workspace_page(filters, page=page, page_size=page_size)
 
     return {
         "title": "Retention Action Workspace",
