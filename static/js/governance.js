@@ -18,7 +18,7 @@ function setRetrainingStatus(message) {
 	}
 }
 
-function setRetrainingButtonState(isBusy, label) {
+function setRetrainingControlsState(isBusy, label) {
 	const button = document.getElementById('governanceRetrainBtn');
 	if (!button) {
 		return;
@@ -28,6 +28,31 @@ function setRetrainingButtonState(isBusy, label) {
 	}
 	button.disabled = isBusy;
 	button.textContent = isBusy ? label : button.dataset.originalLabel;
+
+ const modelSelect = document.getElementById('governanceModelSelect');
+ if (modelSelect) {
+	 modelSelect.disabled = isBusy;
+ }
+}
+
+function getSelectedRetrainingModel() {
+	const modelSelect = document.getElementById('governanceModelSelect');
+	if (!modelSelect) {
+		return { value: 'auto', label: 'Auto Select Best' };
+	}
+
+	const selectedOption = modelSelect.selectedOptions && modelSelect.selectedOptions[0];
+	return {
+		value: modelSelect.value || 'auto',
+		label: selectedOption ? selectedOption.textContent.trim() : modelSelect.value || 'Auto Select Best',
+	};
+}
+
+function syncRetrainingModelSelection(modelName) {
+	const modelSelect = document.getElementById('governanceModelSelect');
+	if (modelSelect && modelName) {
+		modelSelect.value = modelName;
+	}
 }
 
 function stopRetrainingPolling() {
@@ -91,7 +116,7 @@ async function fetchRetrainingJob(jobId) {
 function beginRetrainingPolling(jobId) {
 	stopRetrainingPolling();
 	activeRetrainingJobId = jobId;
-	setRetrainingButtonState(true, 'Retraining...');
+ setRetrainingControlsState(true, 'Retraining...');
 	retrainingPollTimer = window.setInterval(() => {
 		if (!activeRetrainingJobId) {
 			stopRetrainingPolling();
@@ -102,7 +127,7 @@ function beginRetrainingPolling(jobId) {
 				updateRetrainingStatus(job);
 				if (job.status === 'completed' || job.status === 'failed') {
 					stopRetrainingPolling();
-					setRetrainingButtonState(false);
+					 setRetrainingControlsState(false);
 				}
 			})
 			.catch((error) => {
@@ -115,7 +140,7 @@ function beginRetrainingPolling(jobId) {
 			updateRetrainingStatus(job);
 			if (job.status === 'completed' || job.status === 'failed') {
 				stopRetrainingPolling();
-				setRetrainingButtonState(false);
+				setRetrainingControlsState(false);
 			}
 		})
 		.catch((error) => {
@@ -133,9 +158,11 @@ async function resumeRetrainingJob() {
 		const job = payload.job;
 		if (!job) {
 			setRetrainingStatus('Retraining is idle.');
-			setRetrainingButtonState(false);
+			setRetrainingControlsState(false);
 			return;
 		}
+
+		syncRetrainingModelSelection(job.model_name || job.model);
 
 		updateRetrainingStatus(job);
 		if (job.status === 'queued' || job.status === 'running') {
@@ -143,7 +170,7 @@ async function resumeRetrainingJob() {
 			return;
 		}
 
-		setRetrainingButtonState(false);
+		setRetrainingControlsState(false);
 	} catch (error) {
 		console.error('Failed to load retraining status', error);
 	}
@@ -219,12 +246,9 @@ function exportGovernanceJson() {
 }
 
 async function triggerRetraining() {
-	const button = document.getElementById('governanceRetrainBtn');
-	if (button) {
-		button.disabled = true;
-		button.textContent = 'Starting...';
-	}
-	setRetrainingStatus('Submitting retraining job.');
+	const selectedModel = getSelectedRetrainingModel();
+	setRetrainingControlsState(true, 'Starting...');
+	setRetrainingStatus(`Submitting retraining job for ${selectedModel.label}.`);
 
 	try {
 		const response = await fetch('/api/retraining/jobs', {
@@ -232,22 +256,26 @@ async function triggerRetraining() {
 			headers: {
 				'Content-Type': 'application/json',
 			},
+			body: JSON.stringify({
+				model_name: selectedModel.value,
+			}),
 		});
 		if (!response.ok) {
 			throw new Error(`Retraining request failed: ${response.status}`);
 		}
 		const payload = await response.json();
 		const job = payload.job || payload;
+		syncRetrainingModelSelection(job.model_name || selectedModel.value);
 		updateRetrainingStatus(job);
 		if (job.status === 'queued' || job.status === 'running') {
 			beginRetrainingPolling(job.job_id);
 			return;
 		}
-		setRetrainingButtonState(false);
-		showNotice(payload.message || 'Retraining request accepted.');
+		setRetrainingControlsState(false);
+		showNotice(payload.message || `${selectedModel.label} retraining request accepted.`);
 	} catch (error) {
 		console.error('Failed to trigger retraining', error);
-		setRetrainingButtonState(false);
+		setRetrainingControlsState(false);
 		setRetrainingStatus('Retraining request failed.');
 		showNotice('Retraining trigger failed. Please check backend state.');
 	}

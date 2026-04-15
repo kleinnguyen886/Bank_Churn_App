@@ -1,6 +1,17 @@
 {
   "title": "Executive Overview Dashboard",
   "subtitle": "Bank churn prediction monitoring from trained artifact",
+  "model_snapshot": {
+    "model_name": "CatBoost",
+    "model_version": "catboost-v1",
+    "accuracy": "85.5%",
+    "precision": "65.7%",
+    "recall": "60.2%",
+    "f1_score": "62.8%",
+    "roc_auc": "0.871",
+    "selected_threshold": "0.341",
+    "last_trained": "2026-04-15"
+  },
   "kpis": [
     {
       "label": "Total Customers",
@@ -9,7 +20,7 @@
     },
     {
       "label": "Predicted Churners",
-      "value": "714",
+      "value": "1,851",
       "change": "model-driven",
       "alert": true
     },
@@ -20,7 +31,7 @@
     },
     {
       "label": "Retention Success Rate",
-      "value": "81.3%",
+      "value": "39.8%",
       "change": "from eval"
     }
   ],

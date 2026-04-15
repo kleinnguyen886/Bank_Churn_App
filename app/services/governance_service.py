@@ -1,16 +1,38 @@
+from copy import deepcopy
+
+from app.services.retraining_service import get_retraining_model_options, normalize_model_choice
 from app.services.storage_service import read_json
+
+
+def _prepare_governance_context(governance: dict) -> dict:
+    context = deepcopy(governance)
+    cards = list(context.get("cards") or [])
+    metrics = context.get("metrics") or {}
+    selected_model = metrics.get("model_name")
+    if not selected_model:
+        for card in cards:
+            if str(card.get("label", "")).strip().lower() == "selected model":
+                selected_model = card.get("value")
+                break
+
+    context["cards"] = [
+        card for card in cards if str(card.get("label", "")).strip().lower() != "selected model"
+    ]
+    context["model_options"] = get_retraining_model_options()
+    context["active_model"] = normalize_model_choice(selected_model) if selected_model else "auto"
+    return context
 
 
 def get_governance_context() -> dict:
     governance = read_json("governance_summary.json")
     if governance:
-        return governance
+        return _prepare_governance_context(governance)
 
     reference = read_json("reference_governance.json")
     if reference:
-        return reference
+        return _prepare_governance_context(reference)
 
-    return {
+    return _prepare_governance_context({
         "title": "Model Governance Center",
         "subtitle": "Bank churn prediction governance and performance monitoring",
         "cards": [
@@ -40,4 +62,4 @@ def get_governance_context() -> dict:
                 "description": "Recall dropped below 80% acceptable threshold.",
             },
         ],
-    }
+    })

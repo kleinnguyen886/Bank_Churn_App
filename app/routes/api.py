@@ -60,8 +60,18 @@ def charts_campaigns():
 
 @api_bp.post("/retraining/jobs")
 def retraining_jobs():
-    payload = start_retraining_job()
-    return jsonify(payload), 202 if payload.get("started") else 200
+    payload = request.get_json(silent=True) or {}
+    if not isinstance(payload, dict):
+        payload = {}
+
+    requested_model = payload.get("model_name") or payload.get("model") or request.args.get("model")
+
+    try:
+        job_payload = start_retraining_job(model_name=requested_model)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+
+    return jsonify(job_payload), 202 if job_payload.get("started") else 200
 
 
 @api_bp.get("/retraining/jobs/current")

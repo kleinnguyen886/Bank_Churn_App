@@ -7,8 +7,13 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button id="governanceExportBtn" class="ghost-btn" type="button">Export Report</button>
-    <button id="governanceRetrainBtn" class="primary-btn" type="button">Trigger Retraining</button>
+    <button id="governanceExportBtn" class="ghost-btn" type="button"><i data-lucide="download" class="icon"></i>Export Report</button>
+    <select id="governanceModelSelect" class="header-select" aria-label="Select retraining model">
+      {% for option in context.model_options %}
+        <option value="{{ option.value }}" {% if option.value == context.active_model %}selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+    <button id="governanceRetrainBtn" class="primary-btn" type="button"><i data-lucide="rotate-cw" class="icon"></i>Trigger Retraining</button>
   </div>
 </header>
 
@@ -16,7 +21,24 @@
 
 <section class="kpi-grid kpi-grid-6">
   {% for item in context.cards %}
+    {% set kpi_icon = 'badge-check' %}
+    {% if item.label == 'Model Version' %}
+      {% set kpi_icon = 'git-branch' %}
+    {% elif item.label == 'Accuracy' %}
+      {% set kpi_icon = 'activity' %}
+    {% elif item.label == 'Precision' %}
+      {% set kpi_icon = 'check-circle-2' %}
+    {% elif item.label == 'Recall' %}
+      {% set kpi_icon = 'target' %}
+    {% elif item.label == 'F1-Score' %}
+      {% set kpi_icon = 'bar-chart-2' %}
+    {% elif item.label == 'AUC-ROC' %}
+      {% set kpi_icon = 'line-chart' %}
+    {% endif %}
     <article class="kpi-card">
+      <div class="kpi-card-head">
+        <span class="kpi-icon"><i data-lucide="{{ kpi_icon }}" class="icon"></i></span>
+      </div>
       <p class="kpi-value">{{ item.value }}</p>
       <p class="kpi-label">{{ item.label }}</p>
       {% if item.change %}<p class="kpi-change">{{ item.change }}</p>{% endif %}
@@ -25,7 +47,7 @@
 </section>
 
 <article class="panel">
-  <h2>Model Metrics</h2>
+  <h2 class="panel-title"><i data-lucide="brain-circuit" class="icon"></i>Model Metrics</h2>
   <ul>
     <li>ROC-AUC: {{ context.metrics.roc_auc }}</li>
     <li>Precision: {{ context.metrics.precision }}</li>
@@ -36,13 +58,13 @@
 </article>
 
 <article class="panel">
-  <h3>Model Performance Trend</h3>
+  <h3 class="panel-title"><i data-lucide="line-chart" class="icon"></i>Model Performance Trend</h3>
   <p class="muted small">Accuracy, precision, and recall over recent cycles</p>
   <canvas id="governanceTrendChart" height="280"></canvas>
 </article>
 
 <article class="panel">
-  <h3>Active Alerts</h3>
+  <h3 class="panel-title"><i data-lucide="shield-alert" class="icon"></i>Active Alerts</h3>
   {% for alert in context.alerts %}
     <div class="alert-row">
       <p class="alert-title">{{ alert.title }}</p>

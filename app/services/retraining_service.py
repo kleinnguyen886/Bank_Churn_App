@@ -16,9 +16,58 @@ ROOT = Path(__file__).resolve().parents[2]
 TRAINING_SCRIPT = ROOT / "scripts" / "train_and_prepare.py"
 ACTIVE_STATUSES = {"queued", "running"}
 
+RETRAIN_MODEL_OPTIONS = [
+    {"value": "auto", "label": "Auto Select Best"},
+    {"value": "catboost", "label": "CatBoost"},
+    {"value": "random_forest", "label": "Random Forest"},
+    {"value": "logistic_regression", "label": "Logistic Regression"},
+]
+
+MODEL_LABELS = {item["value"]: item["label"] for item in RETRAIN_MODEL_OPTIONS}
+MODEL_ALIASES = {
+    "": "auto",
+    "all": "auto",
+    "auto": "auto",
+    "best": "auto",
+    "auto_select_best": "auto",
+    "catboost": "catboost",
+    "cat_boost": "catboost",
+    "randomforest": "random_forest",
+    "random_forest": "random_forest",
+    "random-forest": "random_forest",
+    "rf": "random_forest",
+    "logisticregression": "logistic_regression",
+    "logistic_regression": "logistic_regression",
+    "logistic-regression": "logistic_regression",
+    "logreg": "logistic_regression",
+    "lr": "logistic_regression",
+}
+
 _lock = threading.Lock()
 _jobs: dict[str, dict[str, Any]] = {}
 _latest_job_id: str | None = None
+
+
+def get_retraining_model_options() -> list[dict[str, Any]]:
+    return deepcopy(RETRAIN_MODEL_OPTIONS)
+
+
+def normalize_model_choice(model_name: str | None) -> str:
+    key = str(model_name or "").strip().lower().replace(" ", "_").replace("-", "_")
+    key = key.strip("_")
+    if not key:
+        return "auto"
+    if key in MODEL_ALIASES:
+        return MODEL_ALIASES[key]
+    if key in MODEL_LABELS:
+        return key
+    raise ValueError(
+        f"Unsupported retraining model '{model_name}'. Choose from auto, catboost, random_forest, or logistic_regression."
+    )
+
+
+def model_choice_label(model_name: str | None) -> str:
+    return MODEL_LABELS[normalize_model_choice(model_name)]
 
 
 def _utc_now() -> str:
@@ -44,6 +93,8 @@ def _summarize_job(job: dict[str, Any]) -> dict[str, Any]:
         "status": job["status"],
         "progress": job["progress"],
         "message": job["message"],
+        "model_name": job.get("model_name"),
+        "model_label": job.get("model_label"),
         "created_at": job["created_at"],
         "started_at": job["started_at"],
         "updated_at": job["updated_at"],
@@ -105,17 +156,22 @@ def _finish_job(
     )
 
 
-def _run_job(job_id: str) -> None:
+def _run_job(job_id: str, model_name: str) -> None:
+    model_label = model_choice_label(model_name)
+    command = [sys.executable, str(TRAINING_SCRIPT)]
+    if model_name != "auto":
+        command.extend(["--model", model_name])
+
     try:
         _set_job(
             job_id,
             status="running",
             progress=20,
             started_at=_utc_now(),
-            message="Retraining pipeline is running.",
+            message=f"Retraining pipeline is running for {model_label}.",
         )
         completed = subprocess.run(
-            [sys.executable, str(TRAINING_SCRIPT)],
+            command,
             cwd=str(ROOT),
             capture_output=True,
             text=True,
@@ -152,8 +208,10 @@ def _run_job(job_id: str) -> None:
     )
 
 
-def start_retraining_job() -> dict[str, Any]:
+def start_retraining_job(model_name: str | None = None) -> dict[str, Any]:
     global _latest_job_id
+    selected_model = normalize_model_choice(model_name)
+    selected_model_label = model_choice_label(selected_model)
 
     with _lock:
         active_job = _get_active_job_locked()
@@ -172,7 +230,9 @@ def start_retraining_job() -> dict[str, Any]:
             "job_id": job_id,
             "status": "queued",
             "progress": 0,
-            "message": "Retraining job queued.",
+            "message": f"Retraining job queued for {selected_model_label}.",
+            "model_name": selected_model,
+            "model_label": selected_model_label,
             "created_at": now,
             "started_at": None,
             "updated_at": now,
@@ -186,7 +246,7 @@ def start_retraining_job() -> dict[str, Any]:
         _jobs[job_id] = job
         _latest_job_id = job_id
 
-    thread = threading.Thread(target=_run_job, args=(job_id,), daemon=True)
+    thread = threading.Thread(target=_run_job, args=(job_id, selected_model), daemon=True)
     thread.start()
 
     return {

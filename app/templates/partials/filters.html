@@ -15,5 +15,5 @@
     <option value="in-progress" {% if context.filters and context.filters.status == 'in-progress' %}selected{% endif %}>In Progress</option>
     <option value="completed" {% if context.filters and context.filters.status == 'completed' %}selected{% endif %}>Completed</option>
   </select>
-  <button type="submit">Apply</button>
+  <button type="submit"><i data-lucide="filter" class="icon"></i>Apply</button>
 </form>

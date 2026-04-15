@@ -7,9 +7,9 @@
     <p class="muted">{{ context.customer.customer_id }} - {{ context.customer.geography }} - {{ context.customer.gender }}, Age {{ context.customer.age }}</p>
   </div>
   <div class="header-actions">
-    <button id="customerCallBtn" class="ghost-btn" type="button">Call Customer</button>
-    <button id="customerEmailBtn" class="ghost-btn" type="button">Send Email</button>
-    <button id="customerStatusBtn" class="primary-btn" type="button">Update Status</button>
+    <button id="customerCallBtn" class="ghost-btn" type="button"><i data-lucide="phone" class="icon"></i>Call Customer</button>
+    <button id="customerEmailBtn" class="ghost-btn" type="button"><i data-lucide="mail" class="icon"></i>Send Email</button>
+    <button id="customerStatusBtn" class="primary-btn" type="button"><i data-lucide="refresh-cw" class="icon"></i>Update Status</button>
   </div>
 </header>
 
@@ -19,14 +19,14 @@
          data-customer-risk="{{ context.customer.risk }}"
          data-customer-email="{{ context.customer.email if context.customer.email else '' }}"
          data-customer-phone="{{ context.customer.phone if context.customer.phone else '' }}">
-  <p>Risk: {% set value = context.customer.risk %}{% include 'partials/risk_badge.html' %}</p>
-  <p>Churn score: {{ context.customer.score }}</p>
-  <p>Recommended action: {{ context.customer.recommended_action }}</p>
+  <p><i data-lucide="shield-alert" class="icon"></i> Risk: {% set value = context.customer.risk %}{% include 'partials/risk_badge.html' %}</p>
+  <p><i data-lucide="gauge" class="icon"></i> Churn score: {{ context.customer.score }}</p>
+  <p><i data-lucide="sparkles" class="icon"></i> Recommended action: {{ context.customer.recommended_action }}</p>
 </article>
 
 <section class="two-col">
   <article class="panel">
-    <h3>Top Risk Drivers</h3>
+    <h3 class="panel-title"><i data-lucide="triangle-alert" class="icon"></i>Top Risk Drivers</h3>
     <table class="data-table compact">
       <thead>
         <tr>
@@ -46,7 +46,7 @@
   </article>
 
   <article class="panel">
-    <h3>Interaction History</h3>
+    <h3 class="panel-title"><i data-lucide="history" class="icon"></i>Interaction History</h3>
     {% for event in context.history %}
       <div class="alert-row">
         <p class="alert-title">{{ event.date }} - {{ event.type }}</p>

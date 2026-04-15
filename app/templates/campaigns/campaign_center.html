@@ -7,14 +7,27 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button id="campaignExportBtn" class="ghost-btn" type="button">Export Report</button>
-    <button id="campaignCreateBtn" class="primary-btn" type="button">Create Campaign</button>
+    <button id="campaignExportBtn" class="ghost-btn" type="button"><i data-lucide="download" class="icon"></i>Export Report</button>
+    <button id="campaignCreateBtn" class="primary-btn" type="button"><i data-lucide="plus-circle" class="icon"></i>Create Campaign</button>
   </div>
 </header>
 
 <section class="kpi-grid kpi-grid-4">
   {% for item in context.kpis %}
+    {% set kpi_icon = 'badge-check' %}
+    {% if item.label == 'Active Campaigns' %}
+      {% set kpi_icon = 'megaphone' %}
+    {% elif item.label == 'Customers Targeted' %}
+      {% set kpi_icon = 'users' %}
+    {% elif item.label == 'Offer Acceptance Rate' %}
+      {% set kpi_icon = 'trending-up' %}
+    {% elif item.label == 'Churns Prevented' %}
+      {% set kpi_icon = 'shield-check' %}
+    {% endif %}
     <article class="kpi-card">
+      <div class="kpi-card-head">
+        <span class="kpi-icon"><i data-lucide="{{ kpi_icon }}" class="icon"></i></span>
+      </div>
       <p class="kpi-value">{{ item.value }}</p>
       <p class="kpi-label">{{ item.label }}</p>
       <p class="kpi-change">{{ item.change }}</p>
@@ -23,18 +36,18 @@
 </section>
 
 <section class="panel">
-  <h2>Campaign Performance Trend</h2>
+  <h2 class="panel-title"><i data-lucide="chart-line" class="icon"></i>Campaign Performance Trend</h2>
   <p class="muted small">Churns prevented and budget utilization by month</p>
   <canvas id="campaignTrendChart" height="280"></canvas>
 </section>
 
 <section class="panel">
-  <h2>Offer Acceptance by Geography</h2>
+  <h2 class="panel-title"><i data-lucide="map-pinned" class="icon"></i>Offer Acceptance by Geography</h2>
   <canvas id="campaignGeoChart" height="280"></canvas>
 </section>
 
 <section class="panel">
-  <h2>Campaigns</h2>
+  <h2 class="panel-title"><i data-lucide="list-checks" class="icon"></i>Campaigns</h2>
   <table class="data-table">
     <thead>
       <tr>

@@ -7,16 +7,32 @@
     <p class="muted">{{ context.subtitle }}</p>
   </div>
   <div class="header-actions">
-    <button id="workspaceBulkAssignBtn" class="primary-btn" type="button">Bulk Assign</button>
-    <button id="workspaceExportBtn" class="ghost-btn" type="button">Export</button>
+    <button id="workspaceBulkAssignBtn" class="primary-btn" type="button"><i data-lucide="user-plus" class="icon"></i>Bulk Assign</button>
+    <button id="workspaceExportBtn" class="ghost-btn" type="button"><i data-lucide="download" class="icon"></i>Export</button>
   </div>
 </header>
 
 <section class="kpi-grid kpi-grid-4">
-  <article class="kpi-card"><p class="kpi-value">{{ context.stats.new_high_risk }}</p><p class="kpi-label">New High Risk</p></article>
-  <article class="kpi-card"><p class="kpi-value">{{ context.stats.in_progress }}</p><p class="kpi-label">In Progress</p></article>
-  <article class="kpi-card"><p class="kpi-value">{{ context.stats.completed }}</p><p class="kpi-label">Completed</p></article>
-  <article class="kpi-card"><p class="kpi-value">{{ context.stats.total_high_risk }}</p><p class="kpi-label">Total High Risk</p></article>
+  <article class="kpi-card">
+    <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="alert-octagon" class="icon"></i></span></div>
+    <p class="kpi-value">{{ context.stats.new_high_risk }}</p>
+    <p class="kpi-label">New High Risk</p>
+  </article>
+  <article class="kpi-card">
+    <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="clock-3" class="icon"></i></span></div>
+    <p class="kpi-value">{{ context.stats.in_progress }}</p>
+    <p class="kpi-label">In Progress</p>
+  </article>
+  <article class="kpi-card">
+    <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="check-circle-2" class="icon"></i></span></div>
+    <p class="kpi-value">{{ context.stats.completed }}</p>
+    <p class="kpi-label">Completed</p>
+  </article>
+  <article class="kpi-card">
+    <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="shield-alert" class="icon"></i></span></div>
+    <p class="kpi-value">{{ context.stats.total_high_risk }}</p>
+    <p class="kpi-label">Total High Risk</p>
+  </article>
 </section>
 
 {% include 'partials/filters.html' %}

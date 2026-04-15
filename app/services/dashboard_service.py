@@ -5,6 +5,53 @@ import pandas as pd
 from app.services.storage_service import read_csv, read_json
 
 
+def _extract_card_value(cards: list[dict], label: str) -> Optional[str]:
+    target = label.strip().lower()
+    for card in cards:
+        if str(card.get("label", "")).strip().lower() == target:
+            value = card.get("value")
+            if value is None:
+                return None
+            return str(value)
+    return None
+
+
+def _format_percentage(value: object) -> str:
+    fraction = _coerce_fraction(value)
+    if fraction is None:
+        return "n/a"
+    return f"{fraction * 100:.1f}%"
+
+
+def _format_decimal(value: object, places: int = 3) -> str:
+    if value is None:
+        return "n/a"
+    try:
+        return f"{float(value):.{places}f}"
+    except (TypeError, ValueError):
+        return str(value)
+
+
+def _build_model_snapshot(governance: dict) -> dict:
+    cards = governance.get("cards", []) if governance else []
+    metrics = governance.get("metrics", {}) if governance else {}
+
+    model_name = _extract_card_value(cards, "Selected Model") or str(metrics.get("model_name") or "Churn Model")
+    model_version = _extract_card_value(cards, "Model Version") or str(metrics.get("model_version") or "v1")
+
+    return {
+        "model_name": model_name,
+        "model_version": model_version,
+        "accuracy": _format_percentage(metrics.get("accuracy")),
+        "precision": _format_percentage(metrics.get("precision")),
+        "recall": _format_percentage(metrics.get("recall")),
+        "f1_score": _format_percentage(metrics.get("f1_score")),
+        "roc_auc": _format_decimal(metrics.get("roc_auc")),
+        "selected_threshold": _format_decimal(metrics.get("selected_threshold")),
+        "last_trained": str(metrics.get("last_trained") or "n/a"),
+    }
+
+
 def _load_dashboard_frame() -> pd.DataFrame:
     workspace = read_csv("workspace_view.csv")
     if not workspace.empty:
@@ -68,6 +115,7 @@ def _build_live_dashboard_context() -> dict:
 
     governance = read_json("governance_summary.json")
     metrics = governance.get("metrics", {}) if governance else {}
+    model_snapshot = _build_model_snapshot(governance or {})
     recall = _coerce_fraction(metrics.get("recall"))
     f1_score = _coerce_fraction(metrics.get("f1_score"))
 
@@ -115,6 +163,7 @@ def _build_live_dashboard_context() -> dict:
     return {
         "title": "Executive Overview Dashboard",
         "subtitle": "Bank churn prediction monitoring from latest retraining artifacts",
+        "model_snapshot": model_snapshot,
         "kpis": [
             {"label": "Total Customers", "value": f"{total_customers:,}", "change": "latest dataset"},
             {
@@ -143,6 +192,10 @@ def _build_live_dashboard_context() -> dict:
 def get_dashboard_context() -> dict:
     dashboard = read_json("dashboard_summary.json")
     if dashboard:
+        if not dashboard.get("model_snapshot"):
+            governance = read_json("governance_summary.json") or read_json("reference_governance.json") or {}
+            if governance:
+                dashboard["model_snapshot"] = _build_model_snapshot(governance)
         return dashboard
 
     live_context = _build_live_dashboard_context()
@@ -156,6 +209,17 @@ def get_dashboard_context() -> dict:
     return {
         "title": "Executive Overview Dashboard",
         "subtitle": "Bank churn prediction monitoring - 10,000 customers tracked",
+        "model_snapshot": {
+            "model_name": "Churn Model",
+            "model_version": "v2.4.1",
+            "accuracy": "86.4%",
+            "precision": "82.1%",
+            "recall": "78.3%",
+            "f1_score": "79.9%",
+            "roc_auc": "0.867",
+            "selected_threshold": "0.500",
+            "last_trained": "2026-04-10",
+        },
         "kpis": [
             {"label": "Total Customers", "value": "10,000", "change": "+1.2%"},
             {

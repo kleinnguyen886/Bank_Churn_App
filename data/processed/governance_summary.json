@@ -4,38 +4,73 @@
   "cards": [
     {
       "label": "Model Version",
-      "value": "logreg-v1"
+      "value": "catboost-v1"
     },
     {
       "label": "Accuracy",
-      "value": "80.8%"
+      "value": "85.5%"
     },
     {
       "label": "Precision",
-      "value": "58.9%"
+      "value": "65.7%"
     },
     {
       "label": "Recall",
-      "value": "18.7%"
+      "value": "60.2%"
     },
     {
       "label": "F1-Score",
-      "value": "28.4%"
+      "value": "62.8%"
     },
     {
       "label": "AUC-ROC",
-      "value": "0.775"
+      "value": "0.871"
     }
   ],
   "metrics": {
-    "accuracy": 0.808,
-    "precision": 0.5891472868217055,
-    "recall": 0.18673218673218672,
-    "f1_score": 0.2835820895522388,
-    "roc_auc": 0.7747639781538086,
-    "last_trained": "2026-04-11",
-    "model_version": "logreg-v1"
+    "model_name": "CatBoost",
+    "accuracy": 0.855,
+    "precision": 0.6568364611260054,
+    "recall": 0.601965601965602,
+    "f1_score": 0.6282051282051282,
+    "roc_auc": 0.8711469558927186,
+    "cv_best_score": 0.8691378575277628,
+    "selected_threshold": 0.3412899812325815,
+    "validation_f1_at_selected_threshold": 0.6470588235289139,
+    "best_params": {
+      "model__depth": 4,
+      "model__iterations": 400,
+      "model__l2_leaf_reg": 5.0,
+      "model__learning_rate": 0.03
+    },
+    "last_trained": "2026-04-15",
+    "model_version": "catboost-v1",
+    "selected_model_choice": "catboost",
+    "selected_model_label": "CatBoost"
   },
+  "model_comparison": [
+    {
+      "model_name": "CatBoost",
+      "accuracy": 0.855,
+      "precision": 0.6568364611260054,
+      "recall": 0.601965601965602,
+      "f1_score": 0.6282051282051282,
+      "roc_auc": 0.8711469558927186,
+      "cv_best_score": 0.8691378575277628,
+      "selected_threshold": 0.3412899812325815,
+      "validation_f1_at_selected_threshold": 0.6470588235289139,
+      "best_params": {
+        "model__depth": 4,
+        "model__iterations": 400,
+        "model__l2_leaf_reg": 5.0,
+        "model__learning_rate": 0.03
+      },
+      "last_trained": "2026-04-15",
+      "model_version": "catboost-v1",
+      "selected_model_choice": "catboost",
+      "selected_model_label": "CatBoost"
+    }
+  ],
   "alerts": [
     {
       "severity": "high",

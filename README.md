@@ -161,3 +161,23 @@ Verification snapshot:
 - `/api/charts/governance` -> 200
 - `/api/charts/campaigns` -> 200
 - `/api/workspace?page=1&page_size=50` -> valid pagination payload
+
+## Recent Implementation Updates (2026-04-15)
+
+1. Retraining and model choice
+- Added CatBoost to the retraining pipeline and dependency set.
+- Governance retraining now supports selecting the target model before starting a job.
+- The retrain flow supports Auto Select Best, CatBoost, Random Forest, and Logistic Regression.
+
+2. Governance cleanup
+- Removed the duplicated `Selected Model` KPI from the governance card grid.
+- Added a compact retraining model selector in the governance header.
+
+3. Sidebar and layout polish
+- Added a sidebar credit info button for author attribution.
+- Moved the credit button to the bottom-right of the sidebar footer.
+- Fixed the shell layout so the sidebar keeps a fixed viewport height and the main content scrolls independently.
+- Tightened the sidebar brand title styling so it fits cleanly inside the fixed-width rail.
+
+4. Dashboard display
+- Added a model snapshot block to the executive dashboard with current model name, version, and key metrics.

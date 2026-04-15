@@ -1,5 +1,47 @@
 # Implementation Changelog
 
+## 2026-04-15
+
+### Model Training and Retraining
+- Added CatBoost to the training pipeline and installed the matching dependency set.
+- Added selectable retraining targets in the governance flow:
+  - Auto Select Best
+  - CatBoost
+  - Random Forest
+  - Logistic Regression
+- Wired the selected retraining model through the governance header, async retraining API, and training script.
+- Kept the best-model selection path available when Auto Select Best is chosen.
+
+### Governance UI Cleanup
+- Removed the duplicated `Selected Model` KPI from the governance card grid.
+- Added a compact model selector to the governance header next to the retrain action.
+
+### Sidebar and Layout
+- Added an author-credit info button in the shared sidebar.
+- Anchored the credit button to the bottom-right of the sidebar footer.
+- Kept the sidebar fixed to the viewport while the main content scrolls independently.
+- Tightened the sidebar brand title styling so `Bank Retention` stays compact inside the 250px rail.
+- Replaced the sidebar BR badge with the copied logo asset from `Bank Retention Platform Design/src/imports/image.png` via `static/image.png`.
+- Updated the sidebar credit copy to show the lecturer and student names.
+
+### Dashboard Snapshot
+- Added a model snapshot block to the executive dashboard showing:
+  - model name
+  - model version
+  - ROC-AUC
+  - accuracy
+  - recall
+  - selected threshold
+
+### Icon Enhancement
+- Borrowed icon treatment ideas from the Figma design bundle and added Lucide icons across Flask pages.
+- Added icon coverage for sidebar navigation, action buttons, KPI cards, filters, and section headings.
+
+### Validation Snapshot
+- Verified Flask page renders for the home page and governance page.
+- Verified the governance context exposes the retrain model options and sanitized KPI cards.
+- Verified the updated layout CSS and sidebar template compile cleanly.
+
 ## 2026-04-11
 
 ### Backend and Data
