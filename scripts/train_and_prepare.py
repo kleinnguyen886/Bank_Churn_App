@@ -11,7 +11,7 @@ import pandas as pd
 from catboost import CatBoostClassifier
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, f1_score, precision_recall_curve, precision_score, recall_score, roc_auc_score
+from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, precision_recall_curve, precision_score, recall_score, roc_auc_score
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
@@ -41,6 +41,82 @@ def _best_f1_threshold(y_true: pd.Series, prob: pd.Series) -> tuple[float, float
     f1_scores = (2 * precision[:-1] * recall[:-1]) / (precision[:-1] + recall[:-1] + 1e-12)
     best_idx = int(f1_scores.argmax())
     return float(thresholds[best_idx]), float(f1_scores[best_idx])
+
+
+def _clean_feature_name(name: str) -> str:
+    cleaned = str(name)
+    if "__" in cleaned:
+        cleaned = cleaned.split("__", 1)[1]
+    return cleaned.replace("_", " ")
+
+
+def _feature_importance_rows(best_model: Pipeline, top_n: int = 12) -> list[dict[str, Any]]:
+    preprocessor = best_model.named_steps.get("preprocessor")
+    model = best_model.named_steps.get("model")
+
+    if preprocessor is None or model is None:
+        return []
+
+    if hasattr(preprocessor, "get_feature_names_out"):
+        feature_names = [_clean_feature_name(name) for name in preprocessor.get_feature_names_out()]
+    else:
+        return []
+
+    importances: list[float]
+    if hasattr(model, "feature_importances_"):
+        importances = [float(value) for value in model.feature_importances_]
+    elif hasattr(model, "coef_"):
+        coefficients = model.coef_
+        if getattr(coefficients, "ndim", 1) > 1:
+            coefficients = coefficients[0]
+        importances = [float(abs(value)) for value in coefficients]
+    else:
+        return []
+
+    if not importances or not feature_names:
+        return []
+
+    size = min(len(feature_names), len(importances))
+    importance_frame = pd.DataFrame(
+        {
+            "feature": feature_names[:size],
+            "importance": [abs(value) for value in importances[:size]],
+        }
+    )
+    importance_frame = importance_frame.sort_values("importance", ascending=False).head(top_n).reset_index(drop=True)
+
+    max_importance = float(importance_frame["importance"].max()) if not importance_frame.empty else 0.0
+    if max_importance > 0:
+        importance_frame["relative_pct"] = (importance_frame["importance"] / max_importance * 100).round(2)
+    else:
+        importance_frame["relative_pct"] = 0.0
+
+    return [
+        {
+            "feature": str(row["feature"]),
+            "importance": float(row["importance"]),
+            "relative_pct": float(row["relative_pct"]),
+        }
+        for _, row in importance_frame.iterrows()
+    ]
+
+
+def _confusion_matrix_payload(y_true: pd.Series, y_pred: pd.Series) -> dict[str, Any]:
+    matrix = confusion_matrix(y_true, y_pred, labels=[0, 1])
+    tn, fp = int(matrix[0, 0]), int(matrix[0, 1])
+    fn, tp = int(matrix[1, 0]), int(matrix[1, 1])
+
+    return {
+        "predicted_labels": ["Predicted Stay", "Predicted Churn"],
+        "rows": [
+            {"actual_label": "Actual Stay", "values": [tn, fp]},
+            {"actual_label": "Actual Churn", "values": [fn, tp]},
+        ],
+        "tn": tn,
+        "fp": fp,
+        "fn": fn,
+        "tp": tp,
+    }
 
 
 MODEL_CHOICES = {
@@ -301,6 +377,11 @@ def main() -> None:
     metrics["selected_model_choice"] = selected_model_choice
     metrics["selected_model_label"] = _model_display_name(selected_model_choice)
 
+    best_test_prob = best_model.predict_proba(X_test)[:, 1]
+    best_test_pred = (best_test_prob >= metrics["selected_threshold"]).astype(int)
+    confusion = _confusion_matrix_payload(y_test, best_test_pred)
+    feature_importance = _feature_importance_rows(best_model)
+
     model_snapshot = {
         "model_name": metrics["model_name"],
         "model_version": metrics["model_version"],
@@ -394,6 +475,8 @@ def main() -> None:
             {"label": "AUC-ROC", "value": f"{metrics['roc_auc']:.3f}"},
         ],
         "metrics": metrics,
+        "confusion_matrix": confusion,
+        "feature_importance": feature_importance,
         "model_comparison": model_comparison.to_dict(orient="records"),
         "alerts": [
             {

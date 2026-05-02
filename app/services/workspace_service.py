@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 
+from app.services.enriched_customer_service import load_enriched_customer_lookup, normalize_customer_id
 from app.services.storage_service import read_csv
 
 
@@ -28,20 +29,61 @@ def _normalize_workspace_frame(workspace_df: pd.DataFrame) -> pd.DataFrame:
     if "status" not in normalized:
         normalized["status"] = "new"
 
-    expected = ["customer_id", "name", "geography", "risk", "score", "owner", "status"]
+    expected = [
+        "customer_id",
+        "name",
+        "geography",
+        "risk",
+        "score",
+        "owner",
+        "status",
+        "city",
+        "region",
+        "customer_age_group",
+        "synthetic_email",
+        "synthetic_phone",
+    ]
     for col in expected:
         if col not in normalized:
             normalized[col] = "" if col != "score" else 0.0
 
-    normalized["customer_id"] = normalized["customer_id"].astype(str).apply(
-        lambda value: value if value.startswith("C-") else f"C-{value}"
-    )
+    normalized["customer_id"] = normalized["customer_id"].astype(str).apply(normalize_customer_id)
     normalized["name"] = normalized["name"].fillna("Unknown").astype(str)
     normalized["geography"] = normalized["geography"].fillna("Unknown").astype(str)
     normalized["risk"] = normalized["risk"].fillna("Medium").astype(str).str.title()
     normalized["score"] = normalized["score"].fillna(0.0).astype(float).round(3)
     normalized["owner"] = normalized["owner"].fillna("Unassigned").astype(str)
     normalized["status"] = normalized["status"].fillna("new").astype(str).str.lower()
+
+    lookup = load_enriched_customer_lookup()
+    if lookup:
+        enriched_series = normalized["customer_id"].map(lookup)
+        normalized["city"] = enriched_series.apply(
+            lambda item: item.get("city", "") if isinstance(item, dict) else ""
+        )
+        normalized["region"] = enriched_series.apply(
+            lambda item: item.get("region", "") if isinstance(item, dict) else ""
+        )
+        normalized["customer_age_group"] = enriched_series.apply(
+            lambda item: item.get("customer_age_group", "") if isinstance(item, dict) else ""
+        )
+        normalized["synthetic_email"] = enriched_series.apply(
+            lambda item: item.get("synthetic_email", "") if isinstance(item, dict) else ""
+        )
+        normalized["synthetic_phone"] = enriched_series.apply(
+            lambda item: item.get("synthetic_phone", "") if isinstance(item, dict) else ""
+        )
+        normalized["name"] = normalized.apply(
+            lambda row: (
+                lookup.get(row["customer_id"], {}).get("customer_full_name")
+                or row["name"]
+            ),
+            axis=1,
+        )
+
+    for col in expected:
+        if col not in normalized:
+            normalized[col] = "" if col not in {"score"} else 0.0
 
     return normalized[expected]
 
@@ -130,6 +172,7 @@ def _filter_rows(rows: list[dict], filters: dict) -> list[dict]:
     risk_filter = (filters.get("risk") or "").lower()
     status_filter = (filters.get("status") or "").lower()
     owner_filter = (filters.get("owner") or "").lower()
+    geography_filter = (filters.get("geography") or filters.get("segment") or "").lower()
 
     filtered_rows = []
     for row in rows:
@@ -140,6 +183,8 @@ def _filter_rows(rows: list[dict], filters: dict) -> list[dict]:
         if status_filter and str(row["status"]).lower() != status_filter:
             continue
         if owner_filter and owner_filter not in str(row["owner"]).lower():
+            continue
+        if geography_filter and geography_filter not in str(row.get("geography", "")).lower():
             continue
         filtered_rows.append(row)
 

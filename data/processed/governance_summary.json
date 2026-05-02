@@ -48,6 +48,94 @@
     "selected_model_choice": "catboost",
     "selected_model_label": "CatBoost"
   },
+  "confusion_matrix": {
+    "predicted_labels": [
+      "Predicted Stay",
+      "Predicted Churn"
+    ],
+    "rows": [
+      {
+        "actual_label": "Actual Stay",
+        "values": [
+          1465,
+          128
+        ]
+      },
+      {
+        "actual_label": "Actual Churn",
+        "values": [
+          162,
+          245
+        ]
+      }
+    ],
+    "tn": 1465,
+    "fp": 128,
+    "fn": 162,
+    "tp": 245
+  },
+  "feature_importance": [
+    {
+      "feature": "NumOfProducts",
+      "importance": 32.70192553105748,
+      "relative_pct": 100.0
+    },
+    {
+      "feature": "Age",
+      "importance": 26.783320095254467,
+      "relative_pct": 81.9
+    },
+    {
+      "feature": "Balance",
+      "importance": 11.60952935148548,
+      "relative_pct": 35.5
+    },
+    {
+      "feature": "IsActiveMember 1",
+      "importance": 6.620162779297182,
+      "relative_pct": 20.24
+    },
+    {
+      "feature": "Geography Germany",
+      "importance": 6.484016165887411,
+      "relative_pct": 19.83
+    },
+    {
+      "feature": "EstimatedSalary",
+      "importance": 4.357807532059393,
+      "relative_pct": 13.33
+    },
+    {
+      "feature": "CreditScore",
+      "importance": 3.0499326046994835,
+      "relative_pct": 9.33
+    },
+    {
+      "feature": "IsActiveMember 0",
+      "importance": 2.4695895409796433,
+      "relative_pct": 7.55
+    },
+    {
+      "feature": "Tenure",
+      "importance": 1.507603945310528,
+      "relative_pct": 4.61
+    },
+    {
+      "feature": "Gender Male",
+      "importance": 1.4702914477515814,
+      "relative_pct": 4.5
+    },
+    {
+      "feature": "Gender Female",
+      "importance": 1.4368740057110643,
+      "relative_pct": 4.39
+    },
+    {
+      "feature": "Geography Spain",
+      "importance": 0.5379743364501,
+      "relative_pct": 1.65
+    }
+  ],
   "model_comparison": [
     {
       "model_name": "CatBoost",

@@ -4,6 +4,50 @@ from app.services.retraining_service import get_retraining_model_options, normal
 from app.services.storage_service import read_json
 
 
+def _as_float(value: object, default: float = 0.0) -> float:
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError):
+        return default
+    return parsed
+
+
+def _safe_fraction(value: object) -> float:
+    parsed = _as_float(value)
+    if parsed <= 0:
+        return 0.0
+    if parsed > 1.0:
+        return parsed / 100.0
+    return parsed
+
+
+def _build_confusion_overview(confusion_matrix: dict, metrics: dict) -> dict:
+    tn = int(_as_float(confusion_matrix.get("tn", 0)))
+    fp = int(_as_float(confusion_matrix.get("fp", 0)))
+    fn = int(_as_float(confusion_matrix.get("fn", 0)))
+    tp = int(_as_float(confusion_matrix.get("tp", 0)))
+
+    total = tn + fp + fn + tp
+    positives = tp + fn
+
+    precision = tp / (tp + fp) if (tp + fp) else _safe_fraction(metrics.get("precision"))
+    recall = tp / (tp + fn) if (tp + fn) else _safe_fraction(metrics.get("recall"))
+    specificity = tn / (tn + fp) if (tn + fp) else 0.0
+
+    return {
+        "has_values": total > 0,
+        "test_size": total,
+        "positive_count": positives,
+        "tp": tp,
+        "fn": fn,
+        "fp": fp,
+        "tn": tn,
+        "precision_pct": round(precision * 100, 1),
+        "recall_pct": round(recall * 100, 1),
+        "specificity_pct": round(specificity * 100, 1),
+    }
+
+
 def _prepare_governance_context(governance: dict) -> dict:
     context = deepcopy(governance)
     cards = list(context.get("cards") or [])
@@ -18,6 +62,9 @@ def _prepare_governance_context(governance: dict) -> dict:
     context["cards"] = [
         card for card in cards if str(card.get("label", "")).strip().lower() != "selected model"
     ]
+    context["confusion_matrix"] = context.get("confusion_matrix") if isinstance(context.get("confusion_matrix"), dict) else {}
+    context["confusion_overview"] = _build_confusion_overview(context["confusion_matrix"], metrics)
+    context["feature_importance"] = context.get("feature_importance") if isinstance(context.get("feature_importance"), list) else []
     context["model_options"] = get_retraining_model_options()
     context["active_model"] = normalize_model_choice(selected_model) if selected_model else "auto"
     return context
@@ -50,6 +97,15 @@ def get_governance_context() -> dict:
             "f1_score": 0.71,
             "last_trained": "2026-04-10",
         },
+        "confusion_matrix": {
+            "predicted_labels": ["Predicted Stay", "Predicted Churn"],
+            "rows": [],
+            "tn": 0,
+            "fp": 0,
+            "fn": 0,
+            "tp": 0,
+        },
+        "feature_importance": [],
         "alerts": [
             {
                 "severity": "high",

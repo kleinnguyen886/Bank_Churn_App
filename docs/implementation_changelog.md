@@ -1,5 +1,59 @@
 # Implementation Changelog
 
+## 2026-05-02
+
+### Workspace and Customer Detail Integration
+- Added enriched customer profile loading from `data/raw/Churn_Modelling_customer_general_info.csv`.
+- Added normalized customer ID handling (`CustomerId` -> `C-<id>`) for consistent API and UI routing.
+- Extended workspace API output with profile enrichment fields:
+  - full name
+  - first name
+  - city
+  - region
+  - age group
+  - contact details
+- Added dedicated customer detail API endpoint:
+  - `GET /api/customer/<customer_id>`
+
+### Backend Service Updates
+- Added `app/services/enriched_customer_service.py` for loading and serving enriched profile records.
+- Updated `app/services/customer_service.py` to support enriched customer detail assembly.
+- Updated `app/services/workspace_service.py` to merge workspace rows with enriched profile data.
+- Updated `app/routes/api.py` to:
+  - expose the new customer detail endpoint
+  - extend workspace filtering behavior and response fields
+
+### Frontend API and UI Refactor (React/Vite)
+- Added `Bank Retention Platform Design/src/app/lib/api.ts` as shared typed API client utilities.
+- Reworked `Bank Retention Platform Design/src/app/components/RetentionWorkspace.tsx` to fetch live paginated API data instead of static/reference-only data.
+- Reworked `Bank Retention Platform Design/src/app/components/CustomerDetail.tsx` to fetch customer detail via route parameter (`/customer/:customerId`).
+- Updated `Bank Retention Platform Design/vite.config.ts` with `/api` proxy mapping to Flask backend.
+
+### Data Pipeline Artifact
+- Regenerated `data/raw/Churn_Modelling_customer_general_info.csv` for enriched identity/contact/location fields consumed by backend services.
+
+### Runtime Validation Snapshot
+- Completed live full-stack verification with both servers running:
+  - Flask API: `127.0.0.1:5000`
+  - Vite frontend: `127.0.0.1:5173`
+- Verified workspace screen loaded real API payload with `10,000` records.
+- Verified quick-view panel opened and displayed enriched profile summary.
+- Verified navigation to `/customer/C-15634602` and successful enriched detail rendering.
+- Verified backend request logs for:
+  - `GET /api/workspace` -> `200`
+  - `GET /api/customer/C-15634602` -> `200`
+
+### Files Updated In This Implementation Wave
+- `app/services/enriched_customer_service.py`
+- `app/services/customer_service.py`
+- `app/services/workspace_service.py`
+- `app/routes/api.py`
+- `Bank Retention Platform Design/src/app/lib/api.ts`
+- `Bank Retention Platform Design/src/app/components/RetentionWorkspace.tsx`
+- `Bank Retention Platform Design/src/app/components/CustomerDetail.tsx`
+- `Bank Retention Platform Design/vite.config.ts`
+- `data/raw/Churn_Modelling_customer_general_info.csv`
+
 ## 2026-04-15
 
 ### Model Training and Retraining
@@ -15,6 +69,7 @@
 ### Governance UI Cleanup
 - Removed the duplicated `Selected Model` KPI from the governance card grid.
 - Added a compact model selector to the governance header next to the retrain action.
+- Added Confusion Matrix and Feature Importance sections to the Model Governance tab.
 
 ### Sidebar and Layout
 - Added an author-credit info button in the shared sidebar.

@@ -63,6 +63,81 @@
   <canvas id="governanceTrendChart" height="280"></canvas>
 </article>
 
+<section class="two-col">
+  <article class="panel confusion-panel">
+    <h3 class="panel-title"><i data-lucide="grid-2x2" class="icon"></i>Confusion Matrix</h3>
+    {% if context.confusion_overview and context.confusion_overview.has_values %}
+      <p class="muted confusion-subtitle">
+        Test set - {{ '{:,}'.format(context.confusion_overview.test_size) }} samples ({{ '{:,}'.format(context.confusion_overview.positive_count) }} churned)
+      </p>
+
+      <div class="confusion-grid">
+        <article class="confusion-cell confusion-cell-tp">
+          <p class="confusion-value">{{ context.confusion_overview.tp }}</p>
+          <p class="confusion-kind"><i data-lucide="check-circle-2" class="icon"></i>True Positive</p>
+          <p class="confusion-desc">Churn predicted correctly</p>
+        </article>
+
+        <article class="confusion-cell confusion-cell-fn">
+          <p class="confusion-value">{{ context.confusion_overview.fn }}</p>
+          <p class="confusion-kind"><i data-lucide="triangle-alert" class="icon"></i>False Negative</p>
+          <p class="confusion-desc">Missed churns</p>
+        </article>
+
+        <article class="confusion-cell confusion-cell-fp">
+          <p class="confusion-value">{{ context.confusion_overview.fp }}</p>
+          <p class="confusion-kind"><i data-lucide="alert-circle" class="icon"></i>False Positive</p>
+          <p class="confusion-desc">Wrongly flagged</p>
+        </article>
+
+        <article class="confusion-cell confusion-cell-tn">
+          <p class="confusion-value">{{ context.confusion_overview.tn }}</p>
+          <p class="confusion-kind"><i data-lucide="shield-check" class="icon"></i>True Negative</p>
+          <p class="confusion-desc">Retained correctly</p>
+        </article>
+      </div>
+
+      <ul class="confusion-metric-list">
+        <li><span>Precision</span><strong>{{ context.confusion_overview.precision_pct }}%</strong></li>
+        <li><span>Recall (Sensitivity)</span><strong>{{ context.confusion_overview.recall_pct }}%</strong></li>
+        <li><span>Specificity</span><strong>{{ context.confusion_overview.specificity_pct }}%</strong></li>
+      </ul>
+    {% else %}
+      <p class="muted small">Confusion matrix will appear after retraining generates the latest artifact.</p>
+    {% endif %}
+  </article>
+
+  <article class="panel">
+    <h3 class="panel-title"><i data-lucide="sliders-horizontal" class="icon"></i>Feature Importance</h3>
+    {% if context.feature_importance %}
+      <table class="data-table compact feature-importance-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Importance</th>
+            <th>Relative</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in context.feature_importance %}
+            <tr>
+              <td>{{ row.feature }}</td>
+              <td>{{ '%.3f'|format(row.importance) }}</td>
+              <td>
+                <div class="importance-track">
+                  <progress class="importance-progress" value="{{ row.relative_pct }}" max="100">{{ row.relative_pct }}</progress>
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="muted small">Feature importance will appear after retraining generates the latest artifact.</p>
+    {% endif %}
+  </article>
+</section>
+
 <article class="panel">
   <h3 class="panel-title"><i data-lucide="shield-alert" class="icon"></i>Active Alerts</h3>
   {% for alert in context.alerts %}

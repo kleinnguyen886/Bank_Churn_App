@@ -46,6 +46,7 @@
       <th>Score</th>
       <th>Owner</th>
       <th>Status</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -58,6 +59,17 @@
         <td>{{ row.score }}</td>
         <td>{{ row.owner }}</td>
         <td>{{ row.status }}</td>
+        <td>
+          <div class="workspace-actions">
+            <a class="workspace-action-link" href="/customer/{{ row.customer_id }}">View details</a>
+            {% if row.synthetic_phone %}
+              <a class="workspace-action-link" href="tel:{{ row.synthetic_phone }}">Call</a>
+            {% else %}
+              <span class="workspace-action-link is-disabled" aria-disabled="true">Call</span>
+            {% endif %}
+            <a class="workspace-action-link" href="/customer/{{ row.customer_id }}?quick_view=1">Quick view</a>
+          </div>
+        </td>
       </tr>
     {% endfor %}
   </tbody>

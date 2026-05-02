@@ -6,6 +6,7 @@ from app.services.chart_service import (
     get_dashboard_charts,
     get_governance_charts,
 )
+from app.services.customer_service import get_customer_context
 from app.services.retraining_service import (
     get_current_retraining_job,
     get_retraining_job,
@@ -94,6 +95,8 @@ def workspace_rows():
         "risk": _clean_filter_value(request.args.get("risk")),
         "status": _clean_filter_value(request.args.get("status")),
         "owner": _clean_filter_value(request.args.get("owner")),
+        "geography": _clean_filter_value(request.args.get("geography")),
+        "segment": _clean_filter_value(request.args.get("segment")),
         "q": _clean_filter_value(request.args.get("q")),
     }
 
@@ -108,6 +111,11 @@ def workspace_rows():
         page_size = 50
 
     return jsonify(get_workspace_page(filters=filters, page=page, page_size=page_size))
+
+
+@api_bp.get("/customer/<customer_id>")
+def customer_detail(customer_id: str):
+    return jsonify(get_customer_context(customer_id))
 
 
 @api_bp.post("/workspace/bulk-assign")
