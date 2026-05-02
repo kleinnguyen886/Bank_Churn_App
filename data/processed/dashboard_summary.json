@@ -10,7 +10,7 @@
     "f1_score": "62.8%",
     "roc_auc": "0.871",
     "selected_threshold": "0.341",
-    "last_trained": "2026-04-15"
+    "last_trained": "2026-05-02"
   },
   "kpis": [
     {

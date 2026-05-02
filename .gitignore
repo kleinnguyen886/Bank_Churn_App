@@ -9,8 +9,6 @@ models/*.pkl
 models/*.joblib
 outputs/*.csv
 outputs/*.png
-data/processed/*.csv
-data/raw/*.csv
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 .DS_Store

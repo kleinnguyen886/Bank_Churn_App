@@ -118,6 +118,24 @@ DEFAULT_FIRST_NAMES = {
 }
 
 
+WORKSPACE_FALLBACK_ROWS: List[Dict[str, Any]] = [
+    {"customer_id": "C-15634602", "name": "Henri Dupont", "geography": "France"},
+    {"customer_id": "C-15647311", "name": "Klara Muller", "geography": "Germany"},
+    {"customer_id": "C-15701122", "name": "Franz Weber", "geography": "Germany"},
+    {"customer_id": "C-15613022", "name": "Luca Romano", "geography": "France"},
+]
+
+
+def normalize_customer_id(value: Any) -> str:
+    """Normalize customer IDs so supplemental demo rows can be deduplicated safely."""
+    text = str(value).strip()
+    if not text:
+        return ""
+    if text.startswith("C-"):
+        return text
+    return f"C-{text}"
+
+
 def stable_rng(*parts: Any, global_seed: int = 42) -> Random:
     """Create a deterministic random generator from row-specific values."""
     joined = "|".join(str(part) for part in parts)
@@ -178,6 +196,46 @@ def make_phone(geography: str, rng: Random) -> str:
     return f"+00 {rng.randint(100, 999)} {rng.randint(100000, 999999)}"
 
 
+def load_workspace_reference_rows() -> pd.DataFrame:
+    """Load supplemental workspace demo customers if available."""
+    processed_reference = Path(__file__).resolve().parents[1] / "data" / "processed" / "reference_workspace.csv"
+    if processed_reference.exists():
+        reference_df = pd.read_csv(processed_reference)
+        if not reference_df.empty:
+            return reference_df
+
+    return pd.DataFrame(WORKSPACE_FALLBACK_ROWS)
+
+
+def _build_supplemental_rows(base_customer_ids: set[str]) -> pd.DataFrame:
+    reference_df = load_workspace_reference_rows()
+    if reference_df.empty:
+        return pd.DataFrame()
+
+    rows: List[Dict[str, Any]] = []
+    for _, row in reference_df.iterrows():
+        customer_id = normalize_customer_id(row.get("customer_id", ""))
+        if not customer_id or customer_id in base_customer_ids:
+            continue
+
+        display_name = str(row.get("name", "")).strip() or "Customer"
+        name_parts = display_name.split()
+        surname = name_parts[-1] if name_parts else "Customer"
+
+        rows.append(
+            {
+                "CustomerId": customer_id,
+                "Geography": str(row.get("geography", "")).strip() or "Unknown",
+                "Gender": "",
+                "Surname": surname,
+                "Age": None,
+                "PreferredCustomerFullName": display_name,
+            }
+        )
+
+    return pd.DataFrame(rows)
+
+
 def enrich_customer_info(df: pd.DataFrame, global_seed: int = 42) -> pd.DataFrame:
     """Return a copy of df enriched with synthetic geography-based customer information."""
     required = {"Geography"}
@@ -213,7 +271,7 @@ def enrich_customer_info(df: pd.DataFrame, global_seed: int = 42) -> pd.DataFram
 
         first_name = rng.choice(rules["first_names"].get(gender, DEFAULT_FIRST_NAMES[gender]))
         surname = str(row.get("Surname", "Customer")).strip() or "Customer"
-        full_name = f"{first_name} {surname}"
+        full_name = str(row.get("PreferredCustomerFullName", "")).strip() or str(row.get("CustomerFullName", "")).strip() or f"{first_name} {surname}"
 
         region, city, postal_code = rng.choice(rules["cities"])
         house_number = rng.randint(1, 199)
@@ -278,10 +336,19 @@ def main() -> None:
     output_path = Path(args.output)
 
     df = pd.read_csv(input_path)
+    base_customer_ids = {normalize_customer_id(customer_id) for customer_id in df.get("CustomerId", [])}
+    supplemental_rows = _build_supplemental_rows(base_customer_ids)
+
     enriched = enrich_customer_info(df, global_seed=args.seed)
+    if not supplemental_rows.empty:
+        supplemental_enriched = enrich_customer_info(supplemental_rows, global_seed=args.seed)
+        supplemental_enriched = supplemental_enriched.drop(columns=["PreferredCustomerFullName"], errors="ignore")
+        enriched = pd.concat([enriched, supplemental_enriched], ignore_index=True, sort=False)
+
     enriched.to_csv(output_path, index=False, encoding="utf-8-sig")
 
     print(f"Input rows: {len(df):,}")
+    print(f"Supplemental rows: {len(supplemental_rows):,}")
     print(f"Output rows: {len(enriched):,}")
     print(f"Added columns: {len(enriched.columns) - len(df.columns)}")
     print(f"Saved: {output_path}")

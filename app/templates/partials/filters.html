@@ -1,19 +1,46 @@
 <form id="workspaceFiltersForm" method="get" class="filters">
-  <input type="text" name="q" placeholder="Search customer" value="{{ context.filters.q if context.filters and context.filters.q else '' }}">
+  {% set selected_risk = (context.filters.risk | lower) if context.filters and context.filters.risk else '' %}
+  {% set selected_status = (context.filters.status | lower) if context.filters and context.filters.status else '' %}
+  {% set selected_geography = context.filters.geography if context.filters and context.filters.geography else '' %}
+  {% set selected_owner = context.filters.owner if context.filters and context.filters.owner else '' %}
+
+  <input type="text" name="q" placeholder="Search customer, ID, geography, city, or contact" value="{{ context.filters.q if context.filters and context.filters.q else '' }}">
   <input type="hidden" name="page" value="1">
   <input type="hidden" name="page_size" id="workspaceFilterPageSize" value="{{ context.pagination.page_size if context.pagination else 50 }}">
-  <input type="text" name="owner" placeholder="Owner" value="{{ context.filters.owner if context.filters and context.filters.owner else '' }}">
+
+  <select name="geography">
+    <option value="">All Geographies</option>
+    {% if selected_geography and selected_geography not in context.available_geographies %}
+      <option value="{{ selected_geography }}" selected>{{ selected_geography }}</option>
+    {% endif %}
+    {% for geography in context.available_geographies %}
+      <option value="{{ geography }}" {% if selected_geography == geography %}selected{% endif %}>{{ geography }}</option>
+    {% endfor %}
+  </select>
+
   <select name="risk">
     <option value="">All Risk</option>
-    <option value="High" {% if context.filters and context.filters.risk == 'High' %}selected{% endif %}>High</option>
-    <option value="Medium" {% if context.filters and context.filters.risk == 'Medium' %}selected{% endif %}>Medium</option>
-    <option value="Low" {% if context.filters and context.filters.risk == 'Low' %}selected{% endif %}>Low</option>
+    <option value="high" {% if selected_risk == 'high' %}selected{% endif %}>High</option>
+    <option value="medium" {% if selected_risk == 'medium' %}selected{% endif %}>Medium</option>
+    <option value="low" {% if selected_risk == 'low' %}selected{% endif %}>Low</option>
   </select>
+
   <select name="status">
     <option value="">All Status</option>
-    <option value="new" {% if context.filters and context.filters.status == 'new' %}selected{% endif %}>New</option>
-    <option value="in-progress" {% if context.filters and context.filters.status == 'in-progress' %}selected{% endif %}>In Progress</option>
-    <option value="completed" {% if context.filters and context.filters.status == 'completed' %}selected{% endif %}>Completed</option>
+    <option value="new" {% if selected_status == 'new' %}selected{% endif %}>New</option>
+    <option value="on-going" {% if selected_status == 'on-going' %}selected{% endif %}>On-going</option>
+    <option value="failed" {% if selected_status == 'failed' %}selected{% endif %}>Failed</option>
   </select>
+
+  <select name="owner">
+    <option value="">All Owners</option>
+    {% if selected_owner and selected_owner not in context.available_owners %}
+      <option value="{{ selected_owner }}" selected>{{ selected_owner }}</option>
+    {% endif %}
+    {% for owner in context.available_owners %}
+      <option value="{{ owner }}" {% if selected_owner == owner %}selected{% endif %}>{{ owner }}</option>
+    {% endfor %}
+  </select>
+
   <button type="submit"><i data-lucide="filter" class="icon"></i>Apply</button>
 </form>

@@ -1,60 +1,161 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<header class="page-header">
+{% set risk_score_pct = ((context.customer.score | float) * 100) | round | int %}
+{% set normalized_status = (context.customer.status if context.customer.status else 'new') | lower %}
+{% if normalized_status in ['on-going', 'ongoing', 'on going'] %}
+  {% set normalized_status = 'on-going' %}
+  {% set status_label = 'On-going' %}
+{% elif normalized_status == 'failed' %}
+  {% set status_label = 'Failed' %}
+{% else %}
+  {% set normalized_status = 'new' %}
+  {% set status_label = 'New' %}
+{% endif %}
+
+<header class="page-header customer-detail-header">
   <div>
-    <h2>{{ context.customer.name }}</h2>
-    <p class="muted">{{ context.customer.customer_id }} - {{ context.customer.geography }} - {{ context.customer.gender }}, Age {{ context.customer.age }}</p>
+    <nav class="customer-breadcrumb muted small" aria-label="Breadcrumb">
+      <a href="/">Dashboard</a>
+      <span>/</span>
+      <a href="/workspace">Retention Workspace</a>
+      <span>/</span>
+      <span>Customer Detail</span>
+    </nav>
+    <div class="customer-title-row">
+      <a href="/workspace" class="customer-back-link">
+        <i data-lucide="arrow-left" class="icon"></i>
+        Back to workspace
+      </a>
+      <div>
+        <h2>{{ context.customer.name }}</h2>
+        <p class="muted">{{ context.customer.customer_id }} - {{ context.customer.geography }} - {{ context.customer.gender }}, Age {{ context.customer.age }}</p>
+      </div>
+    </div>
   </div>
   <div class="header-actions">
     <button id="customerCallBtn" class="ghost-btn" type="button"><i data-lucide="phone" class="icon"></i>Call Customer</button>
     <button id="customerEmailBtn" class="ghost-btn" type="button"><i data-lucide="mail" class="icon"></i>Send Email</button>
-    <button id="customerStatusBtn" class="primary-btn" type="button"><i data-lucide="refresh-cw" class="icon"></i>Update Status</button>
+    <select id="customerStatusBtn" class="header-select customer-status-select status-{{ normalized_status }}" aria-label="Communication status">
+      <option value="new" {% if normalized_status == 'new' %}selected{% endif %}>Status: New</option>
+      <option value="on-going" {% if normalized_status == 'on-going' %}selected{% endif %}>Status: On-going</option>
+      <option value="failed" {% if normalized_status == 'failed' %}selected{% endif %}>Status: Failed</option>
+    </select>
   </div>
 </header>
 
-<article class="panel" id="customerSummary"
-         data-customer-id="{{ context.customer.customer_id }}"
-         data-customer-name="{{ context.customer.name }}"
-         data-customer-risk="{{ context.customer.risk }}"
-         data-customer-email="{{ context.customer.email if context.customer.email else '' }}"
-         data-customer-phone="{{ context.customer.phone if context.customer.phone else '' }}">
-  <p><i data-lucide="shield-alert" class="icon"></i> Risk: {% set value = context.customer.risk %}{% include 'partials/risk_badge.html' %}</p>
-  <p><i data-lucide="gauge" class="icon"></i> Churn score: {{ context.customer.score }}</p>
-  <p><i data-lucide="sparkles" class="icon"></i> Recommended action: {{ context.customer.recommended_action }}</p>
-</article>
+<section class="customer-detail-grid">
+  <article class="panel customer-general-panel" id="customerSummary"
+           data-customer-id="{{ context.customer.customer_id }}"
+           data-customer-name="{{ context.customer.name }}"
+           data-customer-status="{{ context.customer.status if context.customer.status else 'new' }}"
+           data-customer-risk="{{ context.customer.risk }}"
+           data-customer-email="{{ context.customer.email if context.customer.email else '' }}"
+           data-customer-phone="{{ context.customer.phone if context.customer.phone else '' }}">
+    <div class="customer-panel-head">
+      <h3 class="panel-title"><i data-lucide="user-round" class="icon"></i>General Information</h3>
+      <div class="customer-inline-badges">
+        {% set value = context.customer.risk %}{% include 'partials/risk_badge.html' %}
+        <span class="status-badge status-{{ normalized_status }} customer-status-badge">{{ status_label }}</span>
+      </div>
+    </div>
 
-<section class="two-col">
+    <div class="customer-info-grid">
+      <p><span>Full Name</span><strong>{{ context.customer.name }}</strong></p>
+      <p><span>Synthetic First Name</span><strong>{{ context.customer.synthetic_first_name if context.customer.synthetic_first_name else '-' }}</strong></p>
+      <p><span>City</span><strong>{{ context.customer.city if context.customer.city else '-' }}</strong></p>
+      <p><span>Region</span><strong>{{ context.customer.region if context.customer.region else '-' }}</strong></p>
+      <p><span>Postal Code</span><strong>{{ context.customer.postal_code if context.customer.postal_code else '-' }}</strong></p>
+      <p><span>Address</span><strong>{{ context.customer.street_address if context.customer.street_address else '-' }}</strong></p>
+      <p><span>Locale</span><strong>{{ context.customer.locale if context.customer.locale else '-' }}</strong></p>
+      <p><span>Timezone</span><strong>{{ context.customer.timezone if context.customer.timezone else '-' }}</strong></p>
+      <p><span>Currency</span><strong>{{ context.customer.local_currency if context.customer.local_currency else '-' }}</strong></p>
+      <p><span>Age Group</span><strong>{{ context.customer.customer_age_group if context.customer.customer_age_group else '-' }}</strong></p>
+    </div>
+
+    <div class="customer-contact-grid">
+      <p><i data-lucide="mail" class="icon"></i><span>{{ context.customer.email }}</span></p>
+      <p><i data-lucide="phone" class="icon"></i><span>{{ context.customer.phone }}</span></p>
+      <p><i data-lucide="map-pin" class="icon"></i><span>{{ context.customer.geography }} ({{ context.customer.country_iso2 if context.customer.country_iso2 else '-' }})</span></p>
+    </div>
+  </article>
+
+  <article class="panel customer-risk-panel">
+    <h3 class="panel-title"><i data-lucide="shield-alert" class="icon"></i>Risk and Action</h3>
+    <p class="customer-risk-score">{{ risk_score_pct }}%</p>
+    <div class="customer-risk-badge-row">{% set value = context.customer.risk %}{% include 'partials/risk_badge.html' %}</div>
+    <div class="customer-metric-list">
+      <p><span>Credit Score</span><strong>{{ context.customer.credit_score }}</strong></p>
+      <p><span>Tenure</span><strong>{{ context.customer.tenure }} years</strong></p>
+      <p><span>Products</span><strong>{{ context.customer.num_products }}</strong></p>
+      <p><span>Active</span><strong>{{ 'Yes' if context.customer.is_active_member else 'No' }}</strong></p>
+      <p><span>Balance</span><strong>${{ '{:,.2f}'.format(context.customer.balance | float) }}</strong></p>
+      <p><span>Communication status</span><span id="customerStatusBadge" class="status-badge status-{{ normalized_status }} customer-status-badge">{{ status_label }}</span></p>
+    </div>
+    <div class="customer-recommended-action">
+      <p class="muted small">Recommended Action</p>
+      <p>{{ context.customer.recommended_action }}</p>
+    </div>
+  </article>
+</section>
+
+<section class="customer-secondary-grid">
   <article class="panel">
-    <h3 class="panel-title"><i data-lucide="triangle-alert" class="icon"></i>Top Risk Drivers</h3>
-    <table class="data-table compact">
-      <thead>
-        <tr>
-          <th>Driver</th>
-          <th>Impact</th>
-        </tr>
-      </thead>
-      <tbody>
+    <h3 class="panel-title"><i data-lucide="triangle-alert" class="icon"></i>Top Churn Drivers</h3>
+    {% if context.drivers %}
+      <div class="customer-driver-list">
         {% for driver in context.drivers %}
-          <tr>
-            <td>{{ driver.name }}</td>
-            <td>{{ driver.impact }}</td>
-          </tr>
+          {% set impact_value = driver.impact if driver.impact else 'Unknown' %}
+          {% set impact_lower = impact_value | lower %}
+          {% if 'high' in impact_lower %}
+            {% set impact_class = 'impact-high' %}
+          {% elif 'medium' in impact_lower %}
+            {% set impact_class = 'impact-medium' %}
+          {% elif 'low' in impact_lower %}
+            {% set impact_class = 'impact-low' %}
+          {% else %}
+            {% set impact_class = 'impact-default' %}
+          {% endif %}
+          <div class="customer-driver-item">
+            <p class="customer-driver-name">{{ driver.name }}</p>
+            <span class="customer-driver-impact {{ impact_class }}">{{ impact_value }}</span>
+          </div>
         {% endfor %}
-      </tbody>
-    </table>
+      </div>
+    {% else %}
+      <p class="muted small">No driver details available.</p>
+    {% endif %}
   </article>
 
   <article class="panel">
     <h3 class="panel-title"><i data-lucide="history" class="icon"></i>Interaction History</h3>
-    {% for event in context.history %}
-      <div class="alert-row">
-        <p class="alert-title">{{ event.date }} - {{ event.type }}</p>
-        <p class="muted small">{{ event.description }}</p>
+    {% if context.history %}
+      <div class="customer-history-list">
+        {% for event in context.history %}
+          <div class="customer-history-item">
+            <div class="customer-history-head">
+              <p class="customer-history-title">{{ event.description }}</p>
+              <span class="muted small">{{ event.date }}</span>
+            </div>
+            <p class="customer-history-meta muted small">
+              <i data-lucide="tag" class="icon"></i>{{ event.type }}
+              <span>Recorded</span>
+            </p>
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    {% else %}
+      <p class="muted small">No interaction history available.</p>
+    {% endif %}
   </article>
 </section>
+
+<article class="panel customer-enrichment-note">
+  <p>
+    <i data-lucide="alert-circle" class="icon"></i>
+    This customer profile is enriched from Churn_Modelling_customer_general_info.csv generated by scripts/generate_customer_general_info.py.
+  </p>
+</article>
 {% endblock %}
 
 {% block scripts %}

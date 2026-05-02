@@ -12,6 +12,45 @@
   </div>
 </header>
 
+{% if context.data_ready %}
+  <section class="panel workspace-hero">
+    <div class="workspace-hero-copy">
+      <p class="workspace-hero-eyebrow">Prepared churn dataset</p>
+      <h3>All raw customers are scored and ready for review</h3>
+      <p class="muted small">
+        Loaded from {{ context.data_source_label }}. This view combines the full customer base with churn risk, enrichment, and action tracking.
+      </p>
+    </div>
+    <div class="workspace-hero-stats">
+      <div class="workspace-hero-stat">
+        <span>Scored rows</span>
+        <strong>{{ context.source_total_rows }}</strong>
+      </div>
+      <div class="workspace-hero-stat">
+        <span>New high risk</span>
+        <strong>{{ context.stats.new_high_risk }}</strong>
+      </div>
+      <div class="workspace-hero-stat">
+        <span>Prepared source</span>
+        <strong>{{ context.data_source_label }}</strong>
+      </div>
+    </div>
+  </section>
+{% else %}
+  <section class="panel workspace-empty-state">
+    <div class="workspace-empty-state-icon">
+      <i data-lucide="database" class="icon"></i>
+    </div>
+    <div class="workspace-empty-state-copy">
+      <p class="workspace-empty-state-eyebrow">No prepared data yet</p>
+      <h3>Please run `python scripts/train_and_prepare.py`</h3>
+      <p class="muted small">
+        That script generates `customer_master.csv` and `workspace_view.csv` so the workspace can show the full churn-scored dataset instead of the blank state.
+      </p>
+    </div>
+  </section>
+{% endif %}
+
 <section class="kpi-grid kpi-grid-4">
   <article class="kpi-card">
     <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="alert-octagon" class="icon"></i></span></div>
@@ -20,13 +59,13 @@
   </article>
   <article class="kpi-card">
     <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="clock-3" class="icon"></i></span></div>
-    <p class="kpi-value">{{ context.stats.in_progress }}</p>
-    <p class="kpi-label">In Progress</p>
+    <p class="kpi-value">{{ context.stats.status_on_going }}</p>
+    <p class="kpi-label">On-going</p>
   </article>
   <article class="kpi-card">
     <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="check-circle-2" class="icon"></i></span></div>
-    <p class="kpi-value">{{ context.stats.completed }}</p>
-    <p class="kpi-label">Completed</p>
+    <p class="kpi-value">{{ context.stats.status_failed }}</p>
+    <p class="kpi-label">Failed</p>
   </article>
   <article class="kpi-card">
     <div class="kpi-card-head"><span class="kpi-icon"><i data-lucide="shield-alert" class="icon"></i></span></div>
@@ -39,11 +78,9 @@
 <table id="workspaceTable" class="data-table" data-disable-limit="true" data-page-size="{{ context.pagination.page_size if context.pagination else 50 }}">
   <thead>
     <tr>
-      <th>Customer ID</th>
-      <th>Name</th>
-      <th>Geography</th>
+      <th>Customer</th>
+      <th>Location</th>
       <th>Risk</th>
-      <th>Score</th>
       <th>Owner</th>
       <th>Status</th>
       <th>Actions</th>
@@ -52,22 +89,86 @@
   <tbody>
     {% for row in context.rows %}
       <tr>
-        <td>{{ row.customer_id }}</td>
-        <td><a href="/customer/{{ row.customer_id }}">{{ row.name }}</a></td>
-        <td>{{ row.geography }}</td>
-        <td>{% set value = row.risk %}{% include 'partials/risk_badge.html' %}</td>
-        <td>{{ row.score }}</td>
-        <td>{{ row.owner }}</td>
-        <td>{{ row.status }}</td>
+        <td>
+          <a href="/customer/{{ row.customer_id }}">{{ row.name }}</a>
+          <div class="workspace-customer-id muted small">{{ row.customer_id }}</div>
+          {% if row.customer_age_group %}
+            <div class="workspace-customer-meta muted small">Age group: {{ row.customer_age_group }}</div>
+          {% endif %}
+        </td>
+        <td>
+          {% set geography = row.geography if row.geography else 'Unknown' %}
+          <div class="workspace-location-primary">
+            <span class="workspace-geo-pill">{{ geography[:2] | upper }}</span>
+            <span>{{ geography }}</span>
+          </div>
+          <div class="workspace-location-secondary muted small">
+            {% if row.city or row.region %}
+              {{ row.city }}{% if row.city and row.region %}, {% endif %}{{ row.region }}
+            {% else %}
+              -
+            {% endif %}
+          </div>
+        </td>
+        <td>
+          {% set score_pct = ((row.score | float) * 100) | round | int %}
+          <div class="workspace-risk-score">{{ score_pct }}%</div>
+          {% set value = row.risk %}{% include 'partials/risk_badge.html' %}
+        </td>
+        <td>{{ row.owner if row.owner else 'Unassigned' }}</td>
+        <td>{% set value = row.status %}{% include 'partials/status_badge.html' %}</td>
         <td>
           <div class="workspace-actions">
-            <a class="workspace-action-link" href="/customer/{{ row.customer_id }}">View details</a>
+            <a
+              class="workspace-action-icon workspace-action-view"
+              href="/customer/{{ row.customer_id }}"
+              title="View details"
+              aria-label="View details"
+            ><i data-lucide="eye" class="icon"></i></a>
             {% if row.synthetic_phone %}
-              <a class="workspace-action-link" href="tel:{{ row.synthetic_phone }}">Call</a>
+              <a
+                class="workspace-action-icon workspace-action-call"
+                href="tel:{{ row.synthetic_phone }}"
+                title="Call"
+                aria-label="Call"
+              ><i data-lucide="phone" class="icon"></i></a>
             {% else %}
-              <span class="workspace-action-link is-disabled" aria-disabled="true">Call</span>
+              <span
+                class="workspace-action-icon workspace-action-disabled"
+                aria-disabled="true"
+                title="No phone available"
+                aria-label="Call unavailable"
+              ><i data-lucide="phone" class="icon"></i></span>
             {% endif %}
-            <a class="workspace-action-link" href="/customer/{{ row.customer_id }}?quick_view=1">Quick view</a>
+            <button
+              class="workspace-action-icon workspace-action-quick workspace-action-button"
+              type="button"
+              data-action="quick-view"
+              data-customer-id="{{ row.customer_id }}"
+              data-name="{{ row.name }}"
+              data-geography="{{ row.geography }}"
+              data-risk="{{ row.risk }}"
+              data-score="{{ row.score }}"
+              data-owner="{{ row.owner }}"
+              data-status="{{ row.status }}"
+              data-city="{{ row.city }}"
+              data-region="{{ row.region }}"
+              data-email="{{ row.synthetic_email }}"
+              data-phone="{{ row.synthetic_phone }}"
+              title="Quick view"
+              aria-label="Quick view"
+            ><i data-lucide="user-check" class="icon"></i></button>
+          </div>
+        </td>
+      </tr>
+    {% else %}
+      <tr class="workspace-empty-row">
+        <td colspan="6">
+          <div class="workspace-table-empty">
+            <div class="workspace-table-empty-icon"><i data-lucide="database" class="icon"></i></div>
+            <div>
+              <strong>{{ context.empty_message }}</strong>
+            </div>
           </div>
         </td>
       </tr>
@@ -95,6 +196,39 @@
     <span id="workspacePageInfo" class="workspace-page-info">Page 1 / 1</span>
     <button id="workspaceNext" class="ghost-btn" type="button">Next</button>
   </div>
+</div>
+
+<div id="workspaceQuickViewModal" class="workspace-quick-view-modal" hidden>
+  <div id="workspaceQuickViewBackdrop" class="workspace-quick-view-backdrop" data-close="true"></div>
+  <aside class="workspace-quick-view-panel" role="dialog" aria-modal="true" aria-labelledby="workspaceQuickViewTitle">
+    <header class="workspace-quick-view-header">
+      <h3 id="workspaceQuickViewTitle">Customer Quick View</h3>
+      <button id="workspaceQuickViewClose" class="workspace-quick-view-close" type="button" aria-label="Close quick view">Close</button>
+    </header>
+    <div class="workspace-quick-view-body">
+      <div>
+        <p id="workspaceQuickViewName" class="workspace-quick-view-name"></p>
+        <p id="workspaceQuickViewCustomerId" class="muted small"></p>
+        <p id="workspaceQuickViewGeo" class="muted small"></p>
+      </div>
+
+      <div class="workspace-quick-view-stats">
+        <div><span>Risk</span><strong id="workspaceQuickViewRisk"></strong></div>
+        <div><span>Churn Score</span><strong id="workspaceQuickViewScore"></strong></div>
+        <div><span>Owner</span><strong id="workspaceQuickViewOwner"></strong></div>
+        <div><span>Communication status</span><span id="workspaceQuickViewStatus" class="status-badge"></span></div>
+      </div>
+
+      <div class="workspace-quick-view-contact">
+        <p><strong>City/Region:</strong> <span id="workspaceQuickViewRegion"></span></p>
+        <p><strong>Email:</strong> <span id="workspaceQuickViewEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="workspaceQuickViewPhone"></span></p>
+      </div>
+    </div>
+    <footer class="workspace-quick-view-footer">
+      <a id="workspaceQuickViewDetails" class="primary-btn" href="#">View Full Details</a>
+    </footer>
+  </aside>
 </div>
 {% endblock %}
 

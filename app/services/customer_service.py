@@ -1,5 +1,6 @@
 from app.services.storage_service import read_json
 from app.services.enriched_customer_service import get_enriched_customer, normalize_customer_id
+from app.services.workspace_service import get_workspace_customer
 
 
 def _default_email(customer_id: str, name: str) -> str:
@@ -22,6 +23,7 @@ def get_customer_context(customer_id: str) -> dict:
         profiles = read_json("reference_customer_profiles.json")
 
     enriched = get_enriched_customer(normalized_customer_id)
+    workspace_row = get_workspace_customer(normalized_customer_id)
 
     if normalized_customer_id in profiles:
         customer = profiles[normalized_customer_id]
@@ -46,6 +48,7 @@ def get_customer_context(customer_id: str) -> dict:
                 "risk": customer.get("risk", "Medium"),
                 "score": customer.get("score", 0.5),
                 "recommended_action": customer.get("recommended_action", "Monitor"),
+                "status": workspace_row.get("status") or customer.get("status") or "new",
                 "email": customer.get("email") or enriched.get("synthetic_email") or _default_email(normalized_customer_id, name),
                 "phone": customer.get("phone") or enriched.get("synthetic_phone") or _default_phone(normalized_customer_id),
                 "synthetic_first_name": enriched.get("synthetic_first_name", ""),
@@ -85,6 +88,7 @@ def get_customer_context(customer_id: str) -> dict:
             "risk": "High",
             "score": 0.87,
             "recommended_action": "Personal call + balance incentive",
+            "status": workspace_row.get("status") or "new",
             "email": enriched.get("synthetic_email") or _default_email(normalized_customer_id, fallback_name),
             "phone": enriched.get("synthetic_phone") or _default_phone(normalized_customer_id),
             "synthetic_first_name": enriched.get("synthetic_first_name", ""),

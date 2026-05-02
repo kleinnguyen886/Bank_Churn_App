@@ -12,7 +12,7 @@ from app.services.retraining_service import (
     get_retraining_job,
     start_retraining_job,
 )
-from app.services.workspace_service import get_workspace_page, update_workspace_owners
+from app.services.workspace_service import get_workspace_page, update_workspace_owners, update_workspace_statuses
 
 
 api_bp = Blueprint("api", __name__, url_prefix="/api")
@@ -132,3 +132,34 @@ def workspace_bulk_assign():
         return jsonify({"updated": 0, "message": "No workspace rows were updated."}), 200
 
     return jsonify({"updated": updated_count, "message": f"Updated {updated_count} workspace rows."})
+
+
+@api_bp.post("/workspace/update-status")
+def workspace_update_status():
+    payload = request.get_json(silent=True) or {}
+    customer_id = str(payload.get("customer_id") or "").strip()
+    status = str(payload.get("status") or "").strip().lower()
+
+    if not customer_id:
+        return jsonify({"error": "customer_id is required"}), 400
+
+    status = status.replace("_", "-")
+    status = "-".join(status.split())
+    if status == "ongoing":
+        status = "on-going"
+
+    if status not in {"new", "on-going", "failed"}:
+        return jsonify({"error": "status must be new, on-going, or failed"}), 400
+
+    updated_count = update_workspace_statuses([customer_id], status)
+    if updated_count == 0:
+        return jsonify({"updated": 0, "message": "No workspace rows were updated."}), 200
+
+    display_status = "On-going" if status == "on-going" else status.title()
+    return jsonify(
+        {
+            "updated": updated_count,
+            "status": status,
+            "message": f"Updated communication status to {display_status}.",
+        }
+    )

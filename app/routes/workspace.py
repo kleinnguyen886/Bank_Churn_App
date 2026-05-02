@@ -22,6 +22,7 @@ def retention_workspace():
     filters = {
         "risk": _clean_filter_value(request.args.get("risk")),
         "status": _clean_filter_value(request.args.get("status")),
+        "geography": _clean_filter_value(request.args.get("geography")),
         "segment": _clean_filter_value(request.args.get("segment")),
         "owner": _clean_filter_value(request.args.get("owner")),
         "q": _clean_filter_value(request.args.get("q")),

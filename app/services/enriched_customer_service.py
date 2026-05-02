@@ -22,33 +22,58 @@ def normalize_customer_id(customer_id: Any) -> str:
     return f"C-{text}"
 
 
+def _coerce_str(value: Any, default: str = "") -> str:
+    if pd.isna(value):
+        return default
+    text = str(value)
+    return text if text != "nan" else default
+
+
+def _coerce_int(value: Any, default: int = 0) -> int:
+    if pd.isna(value):
+        return default
+    try:
+        return int(float(value))
+    except Exception:
+        return default
+
+
+def _coerce_float(value: Any, default: float = 0.0) -> float:
+    if pd.isna(value):
+        return default
+    try:
+        return float(value)
+    except Exception:
+        return default
+
+
 def _normalize_row(row: dict[str, Any]) -> dict[str, Any]:
     return {
         "customer_id": normalize_customer_id(row.get("CustomerId", "")),
-        "synthetic_first_name": str(row.get("SyntheticFirstName", "") or ""),
-        "customer_full_name": str(row.get("CustomerFullName", "") or ""),
-        "country_iso2": str(row.get("CountryISO2", "") or ""),
-        "locale": str(row.get("Locale", "") or ""),
-        "timezone": str(row.get("TimeZone", "") or ""),
-        "local_currency": str(row.get("LocalCurrency", "") or ""),
-        "region": str(row.get("Region", "") or ""),
-        "city": str(row.get("City", "") or ""),
-        "postal_code": str(row.get("PostalCode", "") or ""),
-        "street_address": str(row.get("StreetAddress", "") or ""),
-        "phone_country_code": str(row.get("PhoneCountryCode", "") or ""),
-        "synthetic_phone": str(row.get("SyntheticPhone", "") or ""),
-        "synthetic_email": str(row.get("SyntheticEmail", "") or ""),
-        "customer_age_group": str(row.get("CustomerAgeGroup", "") or ""),
-        "credit_score": int(row.get("CreditScore", 0) or 0),
-        "age": int(row.get("Age", 0) or 0),
-        "tenure": int(row.get("Tenure", 0) or 0),
-        "balance": float(row.get("Balance", 0.0) or 0.0),
-        "num_products": int(row.get("NumOfProducts", 0) or 0),
-        "has_cr_card": bool(int(row.get("HasCrCard", 0) or 0)),
-        "is_active_member": bool(int(row.get("IsActiveMember", 0) or 0)),
-        "estimated_salary": float(row.get("EstimatedSalary", 0.0) or 0.0),
-        "gender": str(row.get("Gender", "") or ""),
-        "geography": str(row.get("Geography", "") or ""),
+        "synthetic_first_name": _coerce_str(row.get("SyntheticFirstName", "")),
+        "customer_full_name": _coerce_str(row.get("CustomerFullName", "")),
+        "country_iso2": _coerce_str(row.get("CountryISO2", "")),
+        "locale": _coerce_str(row.get("Locale", "")),
+        "timezone": _coerce_str(row.get("TimeZone", "")),
+        "local_currency": _coerce_str(row.get("LocalCurrency", "")),
+        "region": _coerce_str(row.get("Region", "")),
+        "city": _coerce_str(row.get("City", "")),
+        "postal_code": _coerce_str(row.get("PostalCode", "")),
+        "street_address": _coerce_str(row.get("StreetAddress", "")),
+        "phone_country_code": _coerce_str(row.get("PhoneCountryCode", "")),
+        "synthetic_phone": _coerce_str(row.get("SyntheticPhone", "")),
+        "synthetic_email": _coerce_str(row.get("SyntheticEmail", "")),
+        "customer_age_group": _coerce_str(row.get("CustomerAgeGroup", "")),
+        "credit_score": _coerce_int(row.get("CreditScore", 0)),
+        "age": _coerce_int(row.get("Age", 0)),
+        "tenure": _coerce_int(row.get("Tenure", 0)),
+        "balance": _coerce_float(row.get("Balance", 0.0)),
+        "num_products": _coerce_int(row.get("NumOfProducts", 0)),
+        "has_cr_card": bool(_coerce_int(row.get("HasCrCard", 0))),
+        "is_active_member": bool(_coerce_int(row.get("IsActiveMember", 0))),
+        "estimated_salary": _coerce_float(row.get("EstimatedSalary", 0.0)),
+        "gender": _coerce_str(row.get("Gender", "")),
+        "geography": _coerce_str(row.get("Geography", "")),
     }
 
 
