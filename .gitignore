@@ -5,6 +5,7 @@ __pycache__/
 *.log
 Bank Retention Platform Design/
 Bank Retention Platform Design.zip
+catboost_info/
 models/*.pkl
 models/*.joblib
 outputs/*.csv
