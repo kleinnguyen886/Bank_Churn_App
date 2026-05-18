@@ -1,0 +1,50 @@
+<aside class="sidebar">
+  <div class="brand-row">
+    <div class="brand-icon">
+      <img src="{{ url_for('static', filename='image.png') }}" alt="BK TP.HCM Logo">
+    </div>
+    <div>
+      <h1>Bank Retention</h1>
+      <p class="sidebar-subtitle">Platform</p>
+    </div>
+  </div>
+  <nav>
+    <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">
+      <i data-lucide="layout-dashboard" class="icon nav-link-icon"></i>
+      <span>Executive Dashboard</span>
+    </a>
+    <a class="nav-link {% if request.path.startswith('/workspace') %}active{% endif %}" href="/workspace">
+      <i data-lucide="users" class="icon nav-link-icon"></i>
+      <span>Retention Workspace</span>
+    </a>
+    <a class="nav-link {% if request.path.startswith('/model-governance') %}active{% endif %}" href="/model-governance">
+      <i data-lucide="bar-chart-3" class="icon nav-link-icon"></i>
+      <span>Model Governance</span>
+    </a>
+    <a class="nav-link {% if request.path.startswith('/campaigns') %}active{% endif %}" href="/campaigns">
+      <i data-lucide="megaphone" class="icon nav-link-icon"></i>
+      <span>Campaign Center</span>
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-footer-copy">
+      <p class="user-name">Sarah Johnson</p>
+      <p class="user-role">Manager</p>
+    </div>
+    <details class="sidebar-credit">
+      <summary class="sidebar-credit-toggle" aria-label="Show author credit">
+        <i data-lucide="info" class="icon icon-sm"></i>
+      </summary>
+      <div class="sidebar-credit-panel">
+        <p class="sidebar-credit-title">Project credit</p>
+        <p class="sidebar-credit-text">
+          <span class="sidebar-credit-label">Lecturer:</span> Assoc. Prof. Dr. Quan Thanh Tho
+        </p>
+        <p class="sidebar-credit-text">
+          <span class="sidebar-credit-label">Students:</span> Phan Van Nguyen Khanh<br>
+          Nguyen Tuong Phuc
+        </p>
+      </div>
+    </details>
+  </div>
+</aside>

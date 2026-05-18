@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="page-header">
+  <div>
+    <h2>{{ context.title }}</h2>
+    <p class="muted">{{ context.subtitle }}</p>
+  </div>
+  <div class="header-actions">
+    <button id="dashboardLast30Btn" class="ghost-btn" type="button"><i data-lucide="calendar" class="icon"></i>Last 30 Days</button>
+    <button id="dashboardGeoToggleBtn" class="ghost-btn" type="button"><i data-lucide="map" class="icon"></i>All Geographies</button>
+    <button id="dashboardExportBtn" class="ghost-btn" type="button"><i data-lucide="download" class="icon"></i>Export</button>
+  </div>
+</header>
+
+{% if context.model_snapshot %}
+<section class="panel dashboard-spotlight">
+  <div class="dashboard-spotlight-copy">
+    <p class="dashboard-spotlight-eyebrow">Latest retraining artifact</p>
+    <h3>{{ context.model_snapshot.model_name }}</h3>
+    <p class="muted small">
+      Version {{ context.model_snapshot.model_version }} · trained {{ context.model_snapshot.last_trained }}
+    </p>
+  </div>
+  <div class="dashboard-spotlight-metrics">
+    <div class="spotlight-stat">
+      <span class="spotlight-label">ROC-AUC</span>
+      <strong class="spotlight-value">{{ context.model_snapshot.roc_auc }}</strong>
+    </div>
+    <div class="spotlight-stat">
+      <span class="spotlight-label">Accuracy</span>
+      <strong class="spotlight-value">{{ context.model_snapshot.accuracy }}</strong>
+    </div>
+    <div class="spotlight-stat">
+      <span class="spotlight-label">Recall</span>
+      <strong class="spotlight-value">{{ context.model_snapshot.recall }}</strong>
+    </div>
+    <div class="spotlight-stat">
+      <span class="spotlight-label">Threshold</span>
+      <strong class="spotlight-value">{{ context.model_snapshot.selected_threshold }}</strong>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="kpi-grid">
+  {% for item in context.kpis %}
+    {% set kpi_icon = 'activity' %}
+    {% if item.label == 'Total Customers' %}
+      {% set kpi_icon = 'users' %}
+    {% elif item.label == 'Predicted Churners' %}
+      {% set kpi_icon = 'user-x' %}
+    {% elif item.label == 'Overall Churn Rate' %}
+      {% set kpi_icon = 'alert-triangle' %}
+    {% elif item.label == 'Retention Success Rate' %}
+      {% set kpi_icon = 'trending-up' %}
+    {% endif %}
+    <article class="kpi-card {% if item.alert %}alert-card{% endif %}">
+      <div class="kpi-card-head">
+        <span class="kpi-icon"><i data-lucide="{{ kpi_icon }}" class="icon"></i></span>
+      </div>
+      <p class="kpi-value">{{ item.value }}</p>
+      <p class="kpi-label">{{ item.label }}</p>
+      <p class="kpi-change">{{ item.change }}</p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="two-col">
+  <article class="panel">
+    <h3 class="panel-title"><i data-lucide="line-chart" class="icon"></i>Monthly Churn Volume Trend</h3>
+    <p class="muted small">Churned vs retained vs at-risk customers</p>
+    <canvas id="dashboardTrendChart" height="280"></canvas>
+  </article>
+
+  <article class="panel">
+    <h3 class="panel-title"><i data-lucide="globe-2" class="icon"></i>Churn Rate by Geography</h3>
+    <p class="muted small">Germany approximately 2x higher than FR/ES</p>
+    <canvas id="dashboardGeoChart" height="280"></canvas>
+  </article>
+</section>
+
+<section class="two-col">
+  <article class="panel">
+    <h3 class="panel-title"><i data-lucide="layers-3" class="icon"></i>Top Risk Segments</h3>
+    <table class="data-table compact">
+      <thead>
+        <tr>
+          <th>Segment</th>
+          <th>Customers</th>
+          <th>Churn Rate</th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in context.top_segments %}
+          <tr>
+            <td>{{ row.segment }}</td>
+            <td>{{ row.customers }}</td>
+            <td>{{ row.churn_rate }}</td>
+            <td>{{ row.change }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </article>
+
+  <article class="panel">
+    <h3 class="panel-title"><i data-lucide="bell-ring" class="icon"></i>Recent Alerts</h3>
+    {% for alert in context.recent_alerts %}
+      <div class="alert-row">
+        <p class="alert-title">{{ alert.title }}</p>
+        <p class="muted small">{{ alert.description }}</p>
+      </div>
+    {% endfor %}
+  </article>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

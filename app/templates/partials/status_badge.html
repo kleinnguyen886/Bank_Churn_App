@@ -1,0 +1,11 @@
+{% set normalized = value | default('new', true) | lower %}
+{% if normalized in ['on-going', 'ongoing', 'on going'] %}
+{% set normalized = 'on-going' %}
+{% set label = 'On-going' %}
+{% elif normalized == 'failed' %}
+{% set label = 'Failed' %}
+{% else %}
+{% set normalized = 'new' %}
+{% set label = 'New' %}
+{% endif %}
+<span class="status-badge status-{{ normalized }}">{{ label }}</span>

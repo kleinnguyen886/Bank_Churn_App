@@ -1,0 +1,7 @@
+customer_id,name,geography,risk,score,owner,status
+C-15634602,Henri Dupont,France,High,0.87,Sarah Johnson,new
+C-15647311,Klara Muller,Germany,High,0.94,Robert Chen,in-progress
+C-15619304,Ana Garcia,Spain,High,0.72,Sarah Johnson,in-progress
+C-15701122,Franz Weber,Germany,Medium,0.68,Maria Garcia,new
+C-15784802,Sophie Laurent,France,High,0.98,Robert Chen,new
+C-15613022,Luca Romano,France,Low,0.38,Sarah Johnson,completed

@@ -1,0 +1,46 @@
+{
+  "title": "Campaign and Retention Offers Center",
+  "subtitle": "Auto-generated campaign seeds from model risk segments",
+  "kpis": [
+    {
+      "label": "Active Campaigns",
+      "value": "3",
+      "change": "auto"
+    },
+    {
+      "label": "Customers Targeted",
+      "value": "658",
+      "change": "high risk"
+    },
+    {
+      "label": "Offer Acceptance Rate",
+      "value": "TBD",
+      "change": "pending"
+    },
+    {
+      "label": "Churns Prevented",
+      "value": "TBD",
+      "change": "pending"
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "High-Risk Direct Outreach",
+      "segment": "Risk=High",
+      "channel": "Personal Call + Email",
+      "status": "Active"
+    },
+    {
+      "name": "Germany Risk Segment",
+      "segment": "Geography=Germany and Risk>=Medium",
+      "channel": "RM Assisted",
+      "status": "Active"
+    },
+    {
+      "name": "Inactive Member Re-Engagement",
+      "segment": "IsActiveMember=0",
+      "channel": "Email + Push",
+      "status": "Draft"
+    }
+  ]
+}
